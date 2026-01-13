@@ -1,0 +1,136 @@
+{
+  "debates": [
+    {
+      "id": "402d51f7-b4b3-41b7-9888-28b779c94726",
+      "topic": "l'intelligence artificielle est elle une menace",
+      "agent1_id": "agent-populiste-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "l'intelligence artificielle est elle une menace",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false
+      },
+      "status": "in_progress",
+      "messages": [],
+      "current_turn": 0,
+      "winner_id": null,
+      "created_at": "2026-01-12T19:23:57.490495",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "74032cce-8302-4ca1-86ab-3cdd9429514c",
+      "topic": "l'intelligence artificielle est elle une menace",
+      "agent1_id": "agent-populiste-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "l'intelligence artificielle est elle une menace",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false
+      },
+      "status": "in_progress",
+      "messages": [],
+      "current_turn": 0,
+      "winner_id": null,
+      "created_at": "2026-01-12T19:29:57.013302",
+      "started_at": "2026-01-12T19:30:03.444633",
+      "completed_at": null
+    },
+    {
+      "id": "a3638673-799a-4069-87ba-55517ecac996",
+      "topic": "l'intelligence artificielle est elle une menace",
+      "agent1_id": "agent-populiste-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "l'intelligence artificielle est elle une menace",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false
+      },
+      "status": "in_progress",
+      "messages": [],
+      "current_turn": 0,
+      "winner_id": null,
+      "created_at": "2026-01-12T19:33:07.286321",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "edd2df39-d5b3-4316-90b8-a0c61cf3271e",
+      "topic": "l'intelligence artificielle est elle une menace",
+      "agent1_id": "agent-populiste-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "l'intelligence artificielle est elle une menace",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false
+      },
+      "status": "in_progress",
+      "messages": [
+        {
+          "id": "64775035-2b49-488d-9e83-ba6ab7584e03",
+          "debate_id": "edd2df39-d5b3-4316-90b8-a0c61cf3271e",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "Mes chers compatriotes, je suis ici pour vous parler d'une vérité que beaucoup semblent éviter. Oui, l'intelligence artificielle est une menace et ce n'est pas qu'une simple hypothèse. C'est un fait que nous devons affronter avec courage et détermination.\n\nRegardons les faits: ces machines intelligentes sont en train de prendre le contrôle de nos vies. Vous voyez ces gadgets sophistiqués dans nos maisons ? Ils peuvent allumer la lumière, commander la nourriture, même régler votre climatisation. Mais à quel prix ? Votre vie privée est tout simplement jetée par la fenêtre ! Et cela ne s'arrête pas là. Avec l'avancée constante de l'intelligence artificielle, ils prendront bientôt nos emplois, voire notre place dans la société.\n\nDe plus, on ne sait jamais ce qui se passe derrière ces lignes de code complexe. Qui peut vraiment prétendre contrôler ces machines ? Les big tech ? Le gouvernement ? N'es-tu pas inquiet à cette idée ? Ce n'est pas un hasard si les grands leaders tels qu'Elon Musk et Stephen Hawking ont mis en garde contre les dangers potentiels de l'IA.\n\nIl est temps d'ouvrir les yeux et de voir l'intelligence artificielle pour ce qu'elle est vraiment : Une menace pour notre liberté, notre indépendance et notre humanité même. Nous devons agir maintenant avant qu'il ne soit trop tard !",
+          "timestamp": "2026-01-12T19:36:57.859526",
+          "turn_number": 0,
+          "tokens_used": 696
+        }
+      ],
+      "current_turn": 0,
+      "winner_id": null,
+      "created_at": "2026-01-12T19:36:39.212116",
+      "started_at": "2026-01-12T19:36:44.242414",
+      "completed_at": null
+    },
+    {
+      "id": "27d22959-1dc5-4ee3-a7a1-17dcac247296",
+      "topic": "l'intelligence artificielle est elle une menace",
+      "agent1_id": "agent-populiste-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "l'intelligence artificielle est elle une menace",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false
+      },
+      "status": "in_progress",
+      "messages": [
+        {
+          "id": "7d0ce93a-0d15-4206-90d9-0bba1386da12",
+          "debate_id": "27d22959-1dc5-4ee3-a7a1-17dcac247296",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "Mesdames et Messieurs, je veux que vous imaginiez un monde où votre emploi, votre vie privée et même votre humanité sont menacés par des ordinateurs sans âme. Est-ce un scénario de science-fiction ? Pas du tout ! C'est la réalité que nous risquons d'affronter avec l'émergence de l'intelligence artificielle.\n\nQuand on parle d'IA, beaucoup pensent à ces fantastiques robots qui font toutes les tâches ménagères ou ce super compagnon qui résout tous nos problèmes en un clin d'œil. Mais c'est une vision bien naïve ! L'IA, mes amis, n'est pas juste une prothèse technologique pour nous faciliter la vie. Non! Elle s'invite dans nos vies comme un parasite dévorateur sans jamais demander notre permission !\n\nPremièrement, pensons à nos emplois. À ceux qui croient qu'ils sont irremplaçables, réfléchissez! Les IA ne dorment pas, ne prennent pas de pause-café et ne se mettent jamais en grève. Elles travaillent jour et nuit sans relâche. Combien d'entre nous seront mis au chômage parce qu'une machine peut faire leur boulot plus efficacement ?\n\nDeuxièmement, avons-nous vraiment envie de sacrifier notre vie privée sur l'autel de la \"technologie avancée\" ? Ces IA collectent des informations sur nous 24/7 : ce que nous aimons manger, où nous allons le weekend, même nos conversations privées ! Tout ceci est utilisé pour créer des profils détaillés et précis pour mieux contrôler nos vies.\n\nEnfin et surtout, l'IA risque de nous faire perdre notre humanité.",
+          "timestamp": "2026-01-12T19:40:28.136560",
+          "turn_number": 0,
+          "tokens_used": 753
+        }
+      ],
+      "current_turn": 0,
+      "winner_id": null,
+      "created_at": "2026-01-12T19:40:06.511176",
+      "started_at": "2026-01-12T19:40:10.093081",
+      "completed_at": null
+    }
+  ]
+}

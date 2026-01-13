@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Debate - Débats entre IA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎭 AI Debate</h1>
+            <p class="subtitle">Débats entre intelligences artificielles</p>
+        </header>
+
+        <main>
+            <!-- Section de sélection des agents -->
+            <section id="agent-selection">
+                <h2>Sélection des Agents</h2>
+                <div class="agents-grid">
+                    <div class="agent-card">
+                        <h3>Agent 1</h3>
+                        <select id="agent1-select" class="agent-select">
+                            <option value="">Sélectionner un agent...</option>
+                        </select>
+                        <div id="agent1-info" class="agent-info"></div>
+                    </div>
+                    <div class="agent-card">
+                        <h3>Agent 2</h3>
+                        <select id="agent2-select" class="agent-select">
+                            <option value="">Sélectionner un agent...</option>
+                        </select>
+                        <div id="agent2-info" class="agent-info"></div>
+                    </div>
+                </div>
+                <button id="create-agent-btn" class="btn btn-secondary">Créer un nouvel agent</button>
+            </section>
+
+            <!-- Section de configuration du débat -->
+            <section id="debate-config">
+                <h2>Configuration du Débat</h2>
+                <div class="config-form">
+                    <div class="form-group">
+                        <label for="debate-topic">Sujet du débat:</label>
+                        <input type="text" id="debate-topic" placeholder="Ex: L'intelligence artificielle est-elle une menace pour l'humanité?">
+                    </div>
+                    <div class="form-group">
+                        <label for="max-turns">Nombre de tours:</label>
+                        <input type="number" id="max-turns" value="10" min="1" max="50">
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="opening-statements" checked>
+                            Déclarations d'ouverture
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="closing-statements" checked>
+                            Déclarations de clôture
+                        </label>
+                    </div>
+                </div>
+                <button id="start-debate-btn" class="btn btn-primary">Démarrer le débat</button>
+            </section>
+
+            <!-- Section du débat en cours -->
+            <section id="debate-arena" class="hidden">
+                <h2>Débat en cours</h2>
+                <div id="debate-info" class="debate-header"></div>
+                <div id="debate-messages" class="messages-container"></div>
+                <div class="debate-controls">
+                    <button id="next-turn-btn" class="btn btn-primary">Tour suivant</button>
+                    <button id="stop-debate-btn" class="btn btn-danger">Arrêter le débat</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal pour créer un agent -->
+    <div id="agent-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Créer un Agent</h2>
+            <form id="agent-form">
+                <div class="form-group">
+                    <label for="agent-name">Nom:</label>
+                    <input type="text" id="agent-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="agent-provider">Fournisseur IA:</label>
+                    <select id="agent-provider" required>
+                        <option value="openai">OpenAI (GPT)</option>
+                        <option value="google">Google (Gemini)</option>
+                        <option value="anthropic">Anthropic (Claude)</option>
+                        <option value="mistral">Mistral</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="agent-model">Modèle:</label>
+                    <input type="text" id="agent-model" placeholder="Ex: gpt-4, gemini-pro" required>
+                </div>
+                <div class="form-group">
+                    <label for="agent-description">Description:</label>
+                    <textarea id="agent-description" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="agent-style">Style de débat:</label>
+                    <select id="agent-style" required>
+                        <option value="nuancé">Nuancé</option>
+                        <option value="populiste">Populiste</option>
+                        <option value="pragmatique">Pragmatique</option>
+                        <option value="idéaliste">Idéaliste</option>
+                        <option value="provocateur">Provocateur</option>
+                        <option value="conciliateur">Conciliateur</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="agent-tone">Tonalité:</label>
+                    <select id="agent-tone" required>
+                        <option value="formel">Formel</option>
+                        <option value="informel">Informel</option>
+                        <option value="académique">Académique</option>
+                        <option value="combatif">Combatif</option>
+                        <option value="empathique">Empathique</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="agent-strategy">Stratégie d'argumentation:</label>
+                    <select id="agent-strategy" required>
+                        <option value="logique">Logique</option>
+                        <option value="émotionnelle">Émotionnelle</option>
+                        <option value="éthique">Éthique</option>
+                        <option value="pragmatique">Pragmatique</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Créer l'agent</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
