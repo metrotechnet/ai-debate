@@ -42,6 +42,7 @@ class DebateConfig(BaseModel):
     closing_statement_required: bool = Field(default=True, description="Déclaration de clôture obligatoire")
     allow_questions: bool = Field(default=True, description="Permettre les questions")
     moderated: bool = Field(default=False, description="Débat modéré")
+    short_responses: bool = Field(default=True, description="Forcer les réponses courtes (2-3 phrases max)")
 
 
 class Debate(BaseModel):

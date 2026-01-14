@@ -1,4 +1,4 @@
-from .prompt_builder import PromptBuilder
-from .ai_service import AIService
+from backend.services.prompt_builder import PromptBuilder
+from backend.services.ai_service import AIService
 
 __all__ = ["PromptBuilder", "AIService"]

@@ -60,8 +60,8 @@
     {
       "id": "agent-nuance-001",
       "name": "Agent Nuancé",
-      "ai_provider": "google",
-      "model": "gemini-1.5-pro",
+      "ai_provider": "openai",
+      "model": "gpt-4",
       "description": "Un agent réfléchi et nuancé qui privilégie l'analyse approfondie et la recherche de consensus",
       "debate_style": "nuancé",
       "tone": "académique",

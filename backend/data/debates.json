@@ -131,6 +131,853 @@
       "created_at": "2026-01-12T19:40:06.511176",
       "started_at": "2026-01-12T19:40:10.093081",
       "completed_at": null
+    },
+    {
+      "id": "875fc62c-d36d-41c4-b1b5-7c4319e1b3bf",
+      "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+      "agent1_id": "agent-populiste-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false
+      },
+      "status": "in_progress",
+      "messages": [
+        {
+          "id": "42cfd1e6-2fa4-445a-8871-c409f3742ed0",
+          "debate_id": "875fc62c-d36d-41c4-b1b5-7c4319e1b3bf",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "[SIMULÉ] En tant qu'Agent Populiste, jedois dire que c'est une questionimportante qui touche directement les gensordinaires ! Il faut être pragmatiqueet direct sur ce sujet. Lesélites ne comprennent pas la réalitédu terrain.",
+          "timestamp": "2026-01-13T17:10:44.386924",
+          "turn_number": 0,
+          "tokens_used": 0
+        },
+        {
+          "id": "2468c8da-e174-4f7f-b2cb-1373f2bacf4f",
+          "debate_id": "875fc62c-d36d-41c4-b1b5-7c4319e1b3bf",
+          "role": "agent2",
+          "agent_id": "agent-nuance-001",
+          "content": "[SIMULÉ] En tant qu'Agent Nuancé, ilconvient d'examiner cette question sous plusieursangles. D'une part, nous devons considérerles implications éthiques, et d'autre part,les aspects pratiques. La vérité sesitue souvent dans la nuance etle contexte.",
+          "timestamp": "2026-01-13T17:10:49.107787",
+          "turn_number": 0,
+          "tokens_used": 0
+        }
+      ],
+      "current_turn": 1,
+      "winner_id": null,
+      "created_at": "2026-01-13T17:10:41.170839",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "7218fd06-a03e-4729-8580-9f6d9f801554",
+      "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+      "agent1_id": "agent-populiste-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false
+      },
+      "status": "in_progress",
+      "messages": [
+        {
+          "id": "95e05d1f-d90d-463b-91b6-1b8db999bd3f",
+          "debate_id": "7218fd06-a03e-4729-8580-9f6d9f801554",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "",
+          "timestamp": "2026-01-13T17:19:39.581478",
+          "turn_number": 0,
+          "tokens_used": 0
+        },
+        {
+          "id": "ee9807ab-91d6-4ad1-855d-3eb6245d9dde",
+          "debate_id": "7218fd06-a03e-4729-8580-9f6d9f801554",
+          "role": "agent2",
+          "agent_id": "agent-nuance-001",
+          "content": "",
+          "timestamp": "2026-01-13T17:20:05.250257",
+          "turn_number": 0,
+          "tokens_used": 0
+        },
+        {
+          "id": "020ca5e0-fac7-4772-b217-b0ad37b3ef77",
+          "debate_id": "7218fd06-a03e-4729-8580-9f6d9f801554",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "[SIMULÉ] En tant qu'Agent Populiste, jedois dire que c'est une questionimportante qui touche directement les gensordinaires ! Il faut être pragmatiqueet direct sur ce sujet. Lesélites ne comprennent pas la réalitédu terrain.",
+          "timestamp": "2026-01-13T17:28:31.606131",
+          "turn_number": 1,
+          "tokens_used": 0
+        },
+        {
+          "id": "d6d5f1d7-6199-4f1d-8e39-cf8eff7b0f3c",
+          "debate_id": "7218fd06-a03e-4729-8580-9f6d9f801554",
+          "role": "agent2",
+          "agent_id": "agent-nuance-001",
+          "content": "",
+          "timestamp": "2026-01-13T18:58:44.829846",
+          "turn_number": 1,
+          "tokens_used": 0
+        },
+        {
+          "id": "92a4e26f-03f7-4ea5-ad95-96c7a4807498",
+          "debate_id": "7218fd06-a03e-4729-8580-9f6d9f801554",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "",
+          "timestamp": "2026-01-13T18:59:49.402105",
+          "turn_number": 2,
+          "tokens_used": 0
+        },
+        {
+          "id": "51a1176b-72a5-4b14-8729-f21c7efaa1f4",
+          "debate_id": "7218fd06-a03e-4729-8580-9f6d9f801554",
+          "role": "agent2",
+          "agent_id": "agent-nuance-001",
+          "content": "",
+          "timestamp": "2026-01-13T19:00:10.003416",
+          "turn_number": 2,
+          "tokens_used": 0
+        },
+        {
+          "id": "062d87a6-d29c-42ec-a5b2-388393c17531",
+          "debate_id": "7218fd06-a03e-4729-8580-9f6d9f801554",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "",
+          "timestamp": "2026-01-13T19:01:57.672063",
+          "turn_number": 3,
+          "tokens_used": 0
+        },
+        {
+          "id": "eae8e1f1-922f-49be-8091-30eedcfe8f70",
+          "debate_id": "7218fd06-a03e-4729-8580-9f6d9f801554",
+          "role": "agent2",
+          "agent_id": "agent-nuance-001",
+          "content": "",
+          "timestamp": "2026-01-13T19:03:47.685611",
+          "turn_number": 3,
+          "tokens_used": 0
+        },
+        {
+          "id": "32ef22a1-e554-4f02-8bc4-c6cb7a7ada7d",
+          "debate_id": "7218fd06-a03e-4729-8580-9f6d9f801554",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "",
+          "timestamp": "2026-01-13T19:05:23.101737",
+          "turn_number": 4,
+          "tokens_used": 0
+        },
+        {
+          "id": "d0bf700f-25e5-4602-88eb-8dd1d69acbce",
+          "debate_id": "7218fd06-a03e-4729-8580-9f6d9f801554",
+          "role": "agent2",
+          "agent_id": "agent-nuance-001",
+          "content": "",
+          "timestamp": "2026-01-13T19:05:39.462908",
+          "turn_number": 4,
+          "tokens_used": 0
+        },
+        {
+          "id": "259c43c9-52ef-43cb-be52-4af2f0447ae0",
+          "debate_id": "7218fd06-a03e-4729-8580-9f6d9f801554",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "",
+          "timestamp": "2026-01-13T19:08:06.781451",
+          "turn_number": 5,
+          "tokens_used": 0
+        },
+        {
+          "id": "f63f1aac-33b2-452a-87a4-d6b34366a7e2",
+          "debate_id": "7218fd06-a03e-4729-8580-9f6d9f801554",
+          "role": "agent2",
+          "agent_id": "agent-nuance-001",
+          "content": "Le débat sur le caractère menaçant ou non de l'intelligence artificielle (IA) pour l'humanité est complexe et multifacette. Il est essentiel d'adopter une approche nuancée pour le comprendre pleinement.\n\nD'une part, l'IA a le potentiel de transformer positivement de nombreux aspects de notre vie. Par exemple, elle peut améliorer la productivité, faciliter la prise de décision, et même contribuer à résoudre des problèmes mondiaux complexes tels que le changement climatique. En outre, l'IA peut aider à optimiser les ressources en santé, en éducation et dans d'autres secteurs essentiels.\n\nCependant, il est également vrai que l'IA présente des défis et des risques. Par exemple, elle peut être utilisée à des fins malveillantes, comme la cybercriminalité ou la guerre autonome. De plus, l'IA pourrait augmenter les inégalités socio-économiques si son utilisation et ses bénéfices sont concentrés entre les mains d'un petit nombre d'individus ou d'entreprises. Enfin, il y a le risque que des systèmes d'IA avancés deviennent incontrôlables ou agissent de manière imprévue.\n\nIl est donc crucial de mettre en place des régulations appropriées et des mécanismes de contrôle pour minimiser ces risques. Cela comprend la mise en place de normes éthiques pour le développement et l'utilisation de l'IA, ainsi que la promotion d'une IA transparente et explicable.\n\nEn conclusion, l'IA n'est pas une menace inhérente pour l'humanité, mais elle peut le devenir si elle n'est pas gérée de manière appropriée. Il est de notre responsabilité collective de veiller à ce que l'IA soit utilisée de manière à bénéficier à tous et à minimiser les risques potentiels.",
+          "timestamp": "2026-01-13T19:16:20.110107",
+          "turn_number": 5,
+          "tokens_used": 0
+        }
+      ],
+      "current_turn": 6,
+      "winner_id": null,
+      "created_at": "2026-01-13T17:19:19.419597",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "63896d32-6527-41c7-8fb2-328e3f989b1c",
+      "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+      "agent1_id": "agent-populiste-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false
+      },
+      "status": "in_progress",
+      "messages": [
+        {
+          "id": "18485bdf-7ea6-4337-91ca-59b3d6c07f8f",
+          "debate_id": "63896d32-6527-41c7-8fb2-328e3f989b1c",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "",
+          "timestamp": "2026-01-13T17:21:09.416368",
+          "turn_number": 0,
+          "tokens_used": 0
+        }
+      ],
+      "current_turn": 0,
+      "winner_id": null,
+      "created_at": "2026-01-13T17:20:46.795102",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "c3bb7106-58c9-4061-a905-421be8e9dd47",
+      "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+      "agent1_id": "agent-populiste-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false
+      },
+      "status": "in_progress",
+      "messages": [
+        {
+          "id": "e43499e5-8519-44f0-8266-a0f28072d25b",
+          "debate_id": "c3bb7106-58c9-4061-a905-421be8e9dd47",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "[SIMULÉ] En tant qu'Agent Populiste, jedois dire que c'est une questionimportante qui touche directement les gensordinaires ! Il faut être pragmatiqueet direct sur ce sujet. Lesélites ne comprennent pas la réalitédu terrain.",
+          "timestamp": "2026-01-13T17:29:15.341846",
+          "turn_number": 0,
+          "tokens_used": 0
+        },
+        {
+          "id": "9d00c06a-6af0-4522-9cbf-a7b938af176d",
+          "debate_id": "c3bb7106-58c9-4061-a905-421be8e9dd47",
+          "role": "agent2",
+          "agent_id": "agent-nuance-001",
+          "content": "[SIMULÉ] En tant qu'Agent Nuancé, ilconvient d'examiner cette question sous plusieursangles. D'une part, nous devons considérerles implications éthiques, et d'autre part,les aspects pratiques. La vérité sesitue souvent dans la nuance etle contexte.",
+          "timestamp": "2026-01-13T17:29:17.945525",
+          "turn_number": 0,
+          "tokens_used": 0
+        }
+      ],
+      "current_turn": 1,
+      "winner_id": null,
+      "created_at": "2026-01-13T17:29:12.227604",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "4f89c1f3-55f2-4cd9-b471-19d6bb8fef58",
+      "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+      "agent1_id": "agent-populiste-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false
+      },
+      "status": "in_progress",
+      "messages": [
+        {
+          "id": "ab4dba31-8245-440f-b046-8c78c2980cfc",
+          "debate_id": "4f89c1f3-55f2-4cd9-b471-19d6bb8fef58",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "",
+          "timestamp": "2026-01-13T18:56:14.027291",
+          "turn_number": 0,
+          "tokens_used": 0
+        }
+      ],
+      "current_turn": 0,
+      "winner_id": null,
+      "created_at": "2026-01-13T18:55:50.668102",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "6a70fe56-3909-4c1d-9a71-3971c36e2662",
+      "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+      "agent1_id": "agent-populiste-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false
+      },
+      "status": "in_progress",
+      "messages": [
+        {
+          "id": "c37d3bb4-db16-4857-a03a-bb993c180354",
+          "debate_id": "6a70fe56-3909-4c1d-9a71-3971c36e2662",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "Mes chers camarades, pour être franc et sans détour, je crois fermement que l'intelligence artificielle (IA) est une menace pour l'humanité si elle n'est pas réglementée correctement. Et j'en ai marre de ces élites technocrates qui nous disent de ne pas nous inquiéter pendant qu'ils construisent des machines qui semblent tout droit sorties d'un film de science-fiction!\n\nPremièrement, il y a le risque direct de l'IA supplantant les emplois. Des millions de travailleurs honnêtes pourraient perdre leur gagne-pain pendant que quelques grands patrons engrangent encore plus d'argent! Il est inconcevable que nous laissions nos familles affamées et nos entreprises locales en ruine justes parce qu'une machine peut faire le travail un peu plus rapidement.\n\nDeuxièmement, considérez le potentiel d'abus avec l'IA. Vous pensez vraiment que tous ces gouvernements et corporations vont utiliser cette technologie seulement pour le bien? On pourrait utiliser l'IA pour surveiller chaque aspect de votre vie: vos achats, vos habitudes, vos déplacements... C'est un cauchemar Orwellien qui se profile à l'horizon!\n\nEnfin, et c'est peut-être le plus effrayant, il y a toujours la possibilité - peu importe à quel point elle semble lointaine - que ces machines deviennent hors de contrôle. Que se passe-t-il lorsque l'IA dépasse notre capacité humaine à comprendre ou contrôler ce qu'elle fait? Ce n’est pas du fantasme d’Hollywood ; des scientifiques sérieux sonnent déjà cet alarme.\n\nAlors oui ! L'intelligence artificielle peut être une menaces sérieuse à notre avenir si nous n'agis",
+          "timestamp": "2026-01-13T19:17:24.836180",
+          "turn_number": 0,
+          "tokens_used": 0
+        }
+      ],
+      "current_turn": 0,
+      "winner_id": null,
+      "created_at": "2026-01-13T19:17:07.264013",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "65dfd6db-fe75-4b29-84c8-5bb56af9fe25",
+      "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+      "agent1_id": "agent-populiste-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false
+      },
+      "status": "in_progress",
+      "messages": [
+        {
+          "id": "0dac9cb6-aea9-474c-9a35-e9b080cfa2c7",
+          "debate_id": "65dfd6db-fe75-4b29-84c8-5bb56af9fe25",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "Mes chers amis, nous vivons dans une époque où les machines commencent à penser pour nous. Mais laissez-moi vous poser une question simple et directe : est-ce vraiment ce que nous voulons? Je vous le dis, l'intelligence artificielle, c'est la menace du siècle pour l'humanité!\n\nJe vois trois grandes raisons de m'inquiéter. Premièrement, l'emploi. Les machines sont déjà en train de remplacer des millions d'emplois humains et voilà que nos scientifiques veulent leur donner encore plus de pouvoir! Est-ce que nous voulons vraiment vivre dans un monde où l'intelligence artificielle nous rend obsolètes?\n\nDeuxièmement, le contrôle. Aujourd'hui, c'est un petit gadget dans votre téléphone qui écoute vos conversations. Demain? Ce pourrait être une machine intelligente qui décide de votre avenir sans aucune considération pour vos sentiments ou vos désirs personnels.\n\nEnfin et surtout, il y a la question de la sécurité. Nous avons tous vu les films – quand les IA deviennent trop intelligentes, elles peuvent se retourner contre leurs créateurs. Cela peut sembler farfelu aujourd'hui, mais demandez-vous : s'ils ont raison... Êtes-vous prêt à prendre ce risque?\n\nPour toutes ces raisons et plus encore, je dis que non seulement l'intelligence artificielle est une menace pour l'humanité, elle est potentiellement LE danger existentiel qui pourrait marquer la fin de notre ère! Alors réfléchissons bien avant d'ouvrir cette boîte de Pandore.\n",
+          "timestamp": "2026-01-13T19:26:12.354043",
+          "turn_number": 0,
+          "tokens_used": 0
+        },
+        {
+          "id": "835ffc48-eef2-4764-9de1-bc61622c22e1",
+          "debate_id": "65dfd6db-fe75-4b29-84c8-5bb56af9fe25",
+          "role": "agent2",
+          "agent_id": "agent-nuance-001",
+          "content": "Mesdames et Messieurs,\n\nIl est indéniable que l'intelligence artificielle (IA) a un impact significatif sur notre société, modifiant la façon dont nous vivons, travaillons et interagissons. Cependant, la question de savoir si l'IA est une menace pour l'humanité est complexe et nécessite une analyse nuancée. \n\nMon point de vue est que l'IA, en soi, n'est ni une menace ni une bénédiction pour l'humanité. Elle est un outil, et comme tout outil, son impact dépend de la manière dont nous l'utilisons. Trois aspects principaux méritent d'être discutés : l'emploi, le contrôle et la sécurité.\n\nPremièrement, il est vrai que l'IA a le potentiel de perturber le marché du travail en automatisant certaines tâches. Cependant, ce n'est pas la première fois que nous sommes confrontés à une telle situation. Les révolutions industrielles précédentes ont également provoqué des perturbations, mais ont finalement conduit à la création de nouveaux emplois et à une augmentation générale de la prospérité.\n\nDeuxièmement, en ce qui concerne le contrôle, il est crucial de mettre en place des réglementations appropriées pour éviter les abus. L'IA doit être conçue et utilisée de manière à respecter nos valeurs et nos droits fondamentaux. Cela nécessite une gouvernance efficace et des mécanismes de contrôle robustes.\n\nEnfin, sur la question de la sécurité, il est essentiel d'établir des normes rigoureuses pour garantir que les systèmes d'IA sont sûrs et fiables. Les scénarios catastrophiques souvent dépeints dans la fiction sont loin de la réalité actuelle de l'IA, mais ils soulignent l'importance d'une approche prudente et réfléchie.\n\nEn conclusion, plutôt que de considérer l'IA comme une menace inévitable, nous devrions voir en elle une opportunité à saisir avec prudence et discernement. Avec une régulation appropriée, une éducation adaptée et un engagement continu envers les principes éthiques, nous pouvons utiliser l'IA pour améliorer nos vies sans compromettre notre sécurité ou notre humanité.",
+          "timestamp": "2026-01-13T19:26:43.017098",
+          "turn_number": 0,
+          "tokens_used": 0
+        },
+        {
+          "id": "dfe2e8b0-aa40-4cb9-95a2-b6e900c25e80",
+          "debate_id": "65dfd6db-fe75-4b29-84c8-5bb56af9fe25",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "Mes amis, voilà un discours habile et bien argumenté, mais je crains que vous ne soyez en train de vous laisser bercer par de belles paroles. Je peux sentir l'opposition a une confiance aveugle dans la capacité de l'humanité à contrôler cette nouvelle technologie puissante. Mais mettons de côté les jolies phrases pour un moment et parlons réalité.\n\nPremièrement, sur l'emploi. Oui, les révolutions industrielles du passé ont créé de nouveaux emplois. Mais est-ce vraiment comparable ? Nous parlons ici de machines capables d'apprendre et d'évoluer seules! Quels emplois resteront pour nous, simples mortels?\n\nDeuxièmement, le contrôle. Vous avez raison que nous avons besoin de réglementations et de contrôles robustes - mais sommes-nous vraiment prêts à le faire? Voulons-nous vivre dans un monde où chaque geste est surveillé pour s'assurer qu'une IA ne prend pas le dessus? Et qui va mettre en place ces régulations ? Les mêmes organisations qui profitent déjà massivement des avantages économiques offerts par l'IA ?\n\nEnfin, sur la sécurité. Vous assurez que les scénarios catastrophiques sont loin de la réalité - mais combien avons-nous entendu cette phrase juste avant une catastrophe?\n\nJe vais être clair. Je ne dénigre pas l'intelligence artificielle en tant que technologie utile. Non! Ce que je défends avec passion, c'est que nous devrions avoir le droit, en tant qu'humains ordinaires - pas des experts ou des politiciens - mais des gens normaux, de décider si nous voulons prendre le risque de",
+          "timestamp": "2026-01-13T19:27:45.805054",
+          "turn_number": 1,
+          "tokens_used": 0
+        }
+      ],
+      "current_turn": 1,
+      "winner_id": null,
+      "created_at": "2026-01-13T19:25:53.056984",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "642411a1-6ea5-4b96-bae2-dc006f9f5cf7",
+      "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+      "agent1_id": "agent-populiste-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false
+      },
+      "status": "in_progress",
+      "messages": [
+        {
+          "id": "458d3306-d65d-4080-b010-1bafffe54a35",
+          "debate_id": "642411a1-6ea5-4b96-bae2-dc006f9f5cf7",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "En tant qu'Agent Populiste, je réponds à votre question sur le débat. Mon style est populiste avec un ton combatif. Voici mes arguments principaux: premièrement, il faut considérer les aspects sociaux. Deuxièmement, les implications économiques sont importantes. Troisièmement, nous devons examiner les conséquences à long terme. En conclusion, cette question mérite une analyse approfondie et nuancée.",
+          "timestamp": "2026-01-13T19:29:45.033698",
+          "turn_number": 0,
+          "tokens_used": 0
+        }
+      ],
+      "current_turn": 0,
+      "winner_id": null,
+      "created_at": "2026-01-13T19:29:35.836337",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "9706afb2-a058-4e7a-b778-14e8ffa9adaf",
+      "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+      "agent1_id": "agent-populiste-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false
+      },
+      "status": "in_progress",
+      "messages": [
+        {
+          "id": "e50a09ee-7086-4bb2-87c9-206f56abc93a",
+          "debate_id": "9706afb2-a058-4e7a-b778-14e8ffa9adaf",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "En tant qu'Agent Populiste, je réponds à votre question sur le débat. Mon style est populiste avec un ton combatif. Voici mes arguments principaux: premièrement, il faut considérer les aspects sociaux. Deuxièmement, les implications économiques sont importantes. Troisièmement, nous devons examiner les conséquences à long terme. En conclusion, cette question mérite une analyse approfondie et nuancée.",
+          "timestamp": "2026-01-13T19:31:08.705977",
+          "turn_number": 0,
+          "tokens_used": 0
+        }
+      ],
+      "current_turn": 0,
+      "winner_id": null,
+      "created_at": "2026-01-13T19:30:58.884495",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "8b8409bd-c0b2-4082-826e-3d27d36bc7b0",
+      "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+      "agent1_id": "agent-populiste-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false
+      },
+      "status": "in_progress",
+      "messages": [
+        {
+          "id": "ce637d40-bc08-404d-9269-4dd3529ccbe6",
+          "debate_id": "8b8409bd-c0b2-4082-826e-3d27d36bc7b0",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "Mesdames et Messieurs, laissez-moi être clair dès le départ : l'intelligence artificielle, c'est nous qui l'avons créée. Elle n'est pas arrivée comme un extra-terrestre d'une autre galaxie. C'est un outil que nous avons fabriqué, tout comme le marteau et la roue. Alors la voir comme une menace pour l'humanité est aussi absurde que de dire qu'un marteau va se rebeller contre son propriétaire.\n\nRegardez autour de vous ! L'IA est déjà là, dans nos smartphones, nos voitures, nos maisons. Elle nous rend plus efficaces et améliore notre vie quotidienne. Et maintenant des alarmistes veulent vous faire croire qu'elle va se retourner contre nous ? Que du sensationnalisme ! \n\nLa vraie menace n'est pas l'intelligence artificielle en soi, mes amis. La vraie menace c'est comment nous choisissons de l'utiliser ou de l'abuser. Il en a toujours été ainsi avec chaque nouvelle technologie. L'électricité peut illuminer une ville entière la nuit ou électrocuter une personne sur la chaise électrique - cela dépend simplement de comment elle est utilisée !\n\nAlors arrêtons avec cette peur irrationnelle de l'IA et concentrons-nous plutôt sur sa régulation sage et équitable pour nous assurer qu'elle sera mise au service du bien commun. C'est là-dessus que devrait porter le débat ! Parce qu'au final, ce n’est pas la technologie qui est mauvaise ou bonne… c’est toujours ce que les hommes en font qui compte !",
+          "timestamp": "2026-01-13T19:32:36.685492",
+          "turn_number": 0,
+          "tokens_used": 0
+        }
+      ],
+      "current_turn": 0,
+      "winner_id": null,
+      "created_at": "2026-01-13T19:32:12.891243",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "c5facafe-99f8-4156-a8be-606c96f9c3b5",
+      "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+      "agent1_id": "agent-populiste-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false
+      },
+      "status": "in_progress",
+      "messages": [
+        {
+          "id": "19b1a21c-04ae-4044-ae80-913d9b0df0c6",
+          "debate_id": "c5facafe-99f8-4156-a8be-606c96f9c3b5",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "Mes amis, il est temps de regarder la vérité en face! Oui, l'intelligence artificielle (IA) représente une menace imminente pour nous tous. Dans notre époque moderne, où tout le monde parle d'IA comme s'il s'agissait de la solution à tous nos problèmes, il est important que quelqu'un ait le courage de signaler les dangers potentiels.\n\nAvant toute chose, l'emploi. Nos emplois sont en danger! À quoi bon des années d'éducation et de formation si une machine peut être programmée pour faire notre travail en un claquement de doigts? Le simple fait que des millions d'emplois dans le monde soient menacés par l'automatisation devrait nous alarmer tous.\n\nDeuxièmement, regardez autour de vous. L'utilisation généralisée de l'IA augmente la vulnérabilité aux cyberattaques. Des pirates informatiques peuvent se servir des failles des systèmes d'intelligence artificielle pour infiltrer nos données privées et nuire à notre sécurité.\n\nEt troisièmement, avons-nous réellement besoin d'un avenir où les décisions sont prises par des machines sans sentiments ni conscience morale? Pouvons-nous vraiment nous fier à une intelligence qui n'a jamais connu la compassion ou l'empathie ?\n\nOui, je dis qu'il est houleux devant et que nous devons le reconnaître. Nous devons être vigilants, mes amis! Parce que sans mesures appropriées, cette merveille technologique pourrait bien être notre plus grande erreur!",
+          "timestamp": "2026-01-13T19:35:59.263314",
+          "turn_number": 0,
+          "tokens_used": 0
+        }
+      ],
+      "current_turn": 0,
+      "winner_id": null,
+      "created_at": "2026-01-13T19:35:43.794618",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "c894aa56-f616-43a8-b7b2-8313483db879",
+      "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+      "agent1_id": "agent-populiste-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false
+      },
+      "status": "in_progress",
+      "messages": [
+        {
+          "id": "afdf47ce-186b-4697-9183-2387ce92e96f",
+          "debate_id": "c894aa56-f616-43a8-b7b2-8313483db879",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "Mesdames et messieurs, je tiens à vous dire haut et fort que l'intelligence artificielle est non seulement une menace pour l'humanité, mais également la plus grande menace que nous ayons jamais connue ! \n\nLaissez-moi vous expliquer pourquoi. Tout d'abord, l'IA n'a pas de cœur, pas de sentiments. Il faut comprendre cela : une machine ne ressent rien. Elle ne connaît ni l'amour ni la compassion qui sont au fondement même de notre humanité. C'est comme donner le volant d'une voiture à un robot sans sens du danger ou de la prudence.\n\nDeuxièmement, pensez à nos emplois. L'IA risque de rendre obsolète toute une série de professions. Des chauffeurs routiers aux secrétaires, des caissiers aux ouvriers industriels - personne n'est épargné! Quand les machines prendront tous nos emplois, que restera-t-il pour nous autres, simple gens ? Comment vivrons-nous ? \n\nEt enfin - et c'est peut-être le plus effrayant - il y a le contrôle. Avec l’IA, ceux qui en détiennent la technologie détiennent le pouvoir. Et ce pouvoir est immense et peut facilement être mal utilisé. Imaginez un monde où quelques entreprises puissantes ou dictateurs voyous contrôlent des armées entières de robots intelligents!\n\nIl est grand temps que nous discutions sérieusement des dangers potentiels posés par l'IA. Nous devons réfléchir sérieusement avant qu'il soit trop tard!",
+          "timestamp": "2026-01-13T19:41:39.805351",
+          "turn_number": 0,
+          "tokens_used": 0
+        }
+      ],
+      "current_turn": 0,
+      "winner_id": null,
+      "created_at": "2026-01-13T19:41:25.851679",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "1d1ee2a9-2f8d-4e8f-87bc-d7565ef4d745",
+      "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+      "agent1_id": "agent-populiste-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false
+      },
+      "status": "in_progress",
+      "messages": [
+        {
+          "id": "46809407-f916-4834-ae33-41c142b2d578",
+          "debate_id": "1d1ee2a9-2f8d-4e8f-87bc-d7565ef4d745",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "Mesdames et Messieurs, citoyens du monde, je suis ici pour vous parler d'un sujet qui touche à l'essence même de notre existence : l'intelligence artificielle est-elle une menace pour l'humanité? Et je vais vous dire une chose très claire et directe: NON! L'IA n'est pas le monstre que certains aimeraient nous faire croire!\n\nC'est un discours vieux comme le monde, la peur du progrès! Déjà au XIXe siècle, on craignait que le train ne provoque des crises cardiaques chez les passagers tant il allait vite. Aujourd'hui, c'est l'intelligence artificielle qui doit porter le fardeau de nos peurs ancestrales. \n\nJe vais vous expliquer pourquoi ces craintes sont irrationnelles à travers trois points principaux. \n\nPremièrement, il y a cette idée faussement répandue que l'IA va voler nos emplois. La réalité est toute autre! L'IA crée aussi des emplois en ouvrant de nouvelles perspectives dans des domaines tels que la cybersécurité, l'informatique quantique et bien d'autres.\n\nDeuxièmement, beaucoup prétendent que l'IA mène à une surveillance généralisée menaçant notre liberté. Encore une fois, ce n'est pas l'outil qui pose problème mais son utilisation! Il convient donc de réglementer correctement son usage.\n\nEnfin, certains nourrissent des craintes exagérées sur une possible domination des machines sur les hommes. Je rappelle qu'une machine fait ce pourquoi elle a été programmée. Elle n'a ni conscience ni volonté propre.\n\nMes chers auditeurs, ne laissons pas nos peurs entr",
+          "timestamp": "2026-01-13T19:44:24.209795",
+          "turn_number": 0,
+          "tokens_used": 0
+        }
+      ],
+      "current_turn": 0,
+      "winner_id": null,
+      "created_at": "2026-01-13T19:44:04.671173",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "1b00148b-1f6a-4de6-890b-40050f647c15",
+      "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+      "agent1_id": "agent-populiste-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false
+      },
+      "status": "in_progress",
+      "messages": [
+        {
+          "id": "7d7189a2-b1ff-4bbb-bd67-e217098f4e11",
+          "debate_id": "1b00148b-1f6a-4de6-890b-40050f647c15",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "En tant qu'Agent Populiste, je réponds à votre question sur le débat. Mon style est populiste avec un ton combatif. Voici mes arguments principaux: premièrement, il faut considérer les aspects sociaux. Deuxièmement, les implications économiques sont importantes. Troisièmement, nous devons examiner les conséquences à long terme. En conclusion, cette question mérite une analyse approfondie et nuancée.",
+          "timestamp": "2026-01-13T19:45:56.696484",
+          "turn_number": 0,
+          "tokens_used": 0
+        }
+      ],
+      "current_turn": 0,
+      "winner_id": null,
+      "created_at": "2026-01-13T19:45:53.145334",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "61ee94a1-9b3c-4463-9d34-f3c9a9d53b95",
+      "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+      "agent1_id": "agent-populiste-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false
+      },
+      "status": "in_progress",
+      "messages": [
+        {
+          "id": "f74b0729-41ca-46b2-a1d6-0d9016df054d",
+          "debate_id": "61ee94a1-9b3c-4463-9d34-f3c9a9d53b95",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "Mesdames et Messieurs, chers amis,\n\nJe vais vous parler aujourd'hui d'un sujet qui est souvent présenté par les élitistes comme la solution à tous nos problèmes : l'intelligence artificielle ou AI. Non, mes amis, ce n'est pas une solution miracle! Au contraire, l'AI est une menace grave pour notre humanité!\n\nTout d'abord, pensez à l'emploi. Nos usines débordent de robots programmés par de sombres algorithmes AI. Pendant que ces machines travaillent jour et nuit sans se plaindre ni demander des augmentations de salaire, que font nos travailleurs ? Ils restent chez eux parce qu'on leur a dit qu'ils ne sont plus nécessaires! Est-ce juste? Est-ce le monde dans lequel nous voulons vivre?\n\nEnsuite, réfléchissons un instant à la question de la vie privée. Avez-vous remarqué comment votre smartphone ou votre ordinateur semble connaître vos moindres mouvements? C'est parce qu'une AI invisible vous observe continuellement, analysant vos habitudes pour en tirer profit ! C'est une invasion de notre intimité !\n\nEnfin et surtout, songez aux implications morales et éthiques. Que se passe-t-il lorsque l'AI devient aussi sophistiquée que nous-mêmes ? Que se passe-t-il si ces machines commencent à penser par elles-mêmes? Si elles décident un jour qu'elles n'ont plus besoin de nous? Non mes amis, c'est un futur effrayant auquel nous ne devons pas céder.\n\nAlors oui! L'intelligence artificielle est sûrement une menace pour l'humanité! Si nous ne faisons rien maintenant - si nous continuons à laisser ces machines prendre le contrôle - nous risquons de perd",
+          "timestamp": "2026-01-13T19:48:37.095812",
+          "turn_number": 0,
+          "tokens_used": 0
+        }
+      ],
+      "current_turn": 0,
+      "winner_id": null,
+      "created_at": "2026-01-13T19:48:18.664503",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "858bb256-eac7-4073-a37f-9bd920406842",
+      "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+      "agent1_id": "agent-populiste-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false
+      },
+      "status": "in_progress",
+      "messages": [
+        {
+          "id": "24b23fe2-3908-4a56-811e-c1b688ade36f",
+          "debate_id": "858bb256-eac7-4073-a37f-9bd920406842",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "Mes amis, je vous demande d'ouvrir grand vos oreilles et vos esprits. Nous sommes ici pour discuter de quelque chose qui touche à notre avenir, à l'avenir de nos enfants - l'intelligence artificielle. Est-elle une menace pour l'humanité? Je réponds avec un grand OUI catégorique! \n\nAlors que nous parlons, des machines sont entrain de transformer notre monde. Ces machines pensent plus vite que nous, calculent mieux que nous et ne se fatiguent jamais. Et une question majeure demeure : \"Que se passera-t-il lorsque ces robots seront plus intelligents que nous?\"\n\nLaissez-moi vous faire part de mes trois arguments principaux en faveur de cette position.\n\nPremièrement, l'Intelligence Artificielle met en danger nos emplois! Chacun d'entre nous sait qu'un robot ne tombe pas malade, ne prends pas de vacances ou de retraite et n'a pas besoin d'être rémunéré. C'est simple mathématiques, pourquoi une entreprise emploierait-elle un humain quand elle pourrait utiliser un robot pour moins cher?\n\nDeuxièmement, qui contrôle ces machines ? Les corporations? Le gouvernement? Ou bien devrions-nous laisser les IA autonomes diriger le monde? N'est-ce pas effrayant ?\n\nEnfin, il y a la question des armes autonomes - des drones et des robots qui peuvent prendre des décisions mortelles sans intervention humaine.\n\nJe suis ici aujourd'hui pour vous dire la vérité absolue ! Quand il s'agit d'intelligence artificielle, oui c'est fascinant , mais il est temps que nous nous montrions prudents ! Ne laissons pas notre avenir et celui de nos enfants entre les mains des",
+          "timestamp": "2026-01-13T19:50:01.197705",
+          "turn_number": 0,
+          "tokens_used": 0
+        }
+      ],
+      "current_turn": 0,
+      "winner_id": null,
+      "created_at": "2026-01-13T19:49:46.108792",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "a536448a-5faf-437e-bba1-5d87cf389e07",
+      "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+      "agent1_id": "agent-populiste-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "L'intelligence artificielle est-elle une menace pour l'humanité?",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false
+      },
+      "status": "in_progress",
+      "messages": [
+        {
+          "id": "071c93d7-7b77-4842-975e-990f06a93642",
+          "debate_id": "a536448a-5faf-437e-bba1-5d87cf389e07",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "Mes amis, nous sommes ici pour parler de l'intelligence artificielle et de la menace qu'elle représente ou non pour nous, les humains. Ecoutez moi bien: l'IA n'est pas une menace, c'est tout le contraire! Elle est une opportunité incroyable à saisir dans ce monde en constante évolution.\n\nPremièrement, laissez-moi vous dire que \"menace\" est un mot fort. Quand on pense à la menace, on pense au danger, à la peur. Mais pourquoi avoir peur d'un outil que nous avons créé? Il ne faut pas voir l'IA comme un monstre de science-fiction prêt à détruire le monde. L'IA c'est simplement une technologie conçue par des êtres humains - par nous! Elle ne fait que ce qu'on lui demande de faire.\n\nDeuxièmement, l'IA a déjà amélioré nos vies d'une manière que vous ne pouvez même pas imaginer. Vous voyez ces progrès médicaux impressionnants ? Ces voitures autonomes qui rendent nos routes plus sûres ? Ces assistants numériques qui facilitent notre quotidien ? Tout cela serait impossible sans l'IA.\n\nEnfin, je dirais que la vraie menace n'est pas l'IA elle-même. Non non non! La vraie menace c'est comment nous utilisons cette technologie! L'IA peut être un outil dangereux si elle est entre les mains de personnes mal intentionnées, tout comme n’importe quel autre outil !\n\nPour conclure mes amis, ne laissont pas les fantasmes des films de science-fiction nous aveugler ! Voyons plutôt l'intelligence artificielle pour ce qu'elle est vraiment : une formidable opportunité pour l'humanité, une chance d'améliorer nos vies et notre",
+          "timestamp": "2026-01-13T19:52:59.340473",
+          "turn_number": 0,
+          "tokens_used": 0
+        },
+        {
+          "id": "8f6436a5-d468-4fed-bb2d-ff9a44045f03",
+          "debate_id": "a536448a-5faf-437e-bba1-5d87cf389e07",
+          "role": "agent2",
+          "agent_id": "agent-nuance-001",
+          "content": "Chers collègues, nous nous retrouvons aujourd'hui pour discuter d'un sujet qui suscite une multitude de réactions, et ce, à juste titre : l'intelligence artificielle (IA) constitue-t-elle une menace pour l'humanité ? Ma position est que l'IA n'est pas intrinsèquement une menace, mais plutôt un outil dont les implications dépendent largement de la manière dont il est utilisé et régulé.\n\nPremièrement, il est important de comprendre que l'IA, en tant que technologie, est neutre. Elle n'a pas d'intentions propres ou de volonté autonome. Elle exécute simplement les tâches pour lesquelles elle a été programmée. Par conséquent, affirmer que l'IA est une menace reviendrait à dire qu'un marteau ou une voiture sont des menaces. Ce sont les utilisations potentiellement néfastes de ces outils qui posent problème.\n\nDeuxièmement, il est indéniable que l'IA a le potentiel d'améliorer considérablement nos vies. Des diagnostics médicaux précis aux véhicules autonomes en passant par la personnalisation de l'éducation, l'IA a déjà commencé à transformer divers secteurs de manière positive.\n\nCependant, il serait naïf de ne pas reconnaître les défis et les risques potentiels associés à l'IA. Les problèmes d'éthique, de vie privée et de sécurité sont des préoccupations légitimes qui doivent être adressées. De plus, l'IA pourrait également exacerber les inégalités existantes si elle n'est pas correctement régulée.\n\nEn conclusion, je soutiens que l'IA n'est pas une menace en soi pour l'humanité. Cependant, il est impératif que nous adoptions une approche réfléchie et nuancée pour gérer son développement et son utilisation, afin de maximiser ses avantages tout en minimisant ses risques potentiels.",
+          "timestamp": "2026-01-13T19:53:31.956706",
+          "turn_number": 0,
+          "tokens_used": 0
+        },
+        {
+          "id": "20e84a5b-b029-4ea5-ac0e-665b83e562da",
+          "debate_id": "a536448a-5faf-437e-bba1-5d87cf389e07",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "Mon adversaire parle de la neutralité de l'IA, comme si c'était une simple calculatrice dans nos poches. Alors oui, comme lui, je suis d'accord sur le principe que l'IA est un outil. Mais mes amis, quel outil! Il ne s'agit pas d'un marteau ou d'une voiture! On parle d'une technologie qui peut apprendre, évoluer et prendre des décisions basées sur des montagnes de données en un clin d'oeil!\n\nQuand on a un tel pouvoir dans les mains, peut-on parler vraiment de neutralité? L'IA n'est pas simplement neutre, elle amplifie les intentions de celui qui la programme et l'utilise. C'est pour cette raison que nous devons rester maîtres de cet outil formidable et ne pas le laisser entre les mauvaises mains.\n\nEnsuite mon adversaire mentionne les défis et risques potentiels associés à l'IA... Quoi?! Les \"défis\" sont à notre porte chaque jour mes amis! La vie est un défi constant mais nous avons toujours su nous relever et avancer! Pourquoi serait-ce différent avec l'intelligence artificielle ?\n\nCependant oui je suis bien sûr d'accord qu'il faut être vigilants. Evidemment qu'il faut encadrer son utilisation pour protéger nos libertés individuelles. Notre priorité doit être d'établir des règles claires pour garantir que cette merveilleuse technologie reste au service du peuple, au service du progrès humain! \n\nAlors oui mes chers amis, malgré les cris alarmistes de certains, restons confiants en notre avenir avec l'intelligence artificielle! Regardez combien nous avons avancé grâce à elle. N'est-ce pas",
+          "timestamp": "2026-01-13T19:54:07.607998",
+          "turn_number": 1,
+          "tokens_used": 0
+        },
+        {
+          "id": "834b803c-bedd-4de3-8aa4-0e392b5183b8",
+          "debate_id": "a536448a-5faf-437e-bba1-5d87cf389e07",
+          "role": "agent2",
+          "agent_id": "agent-nuance-001",
+          "content": "Chers collègues, je comprends les points avancés par mon adversaire et je les respecte. Toutefois, il est important de préciser certains aspects pour une meilleure compréhension.\n\nMon adversaire soulève un point pertinent sur la puissance de l'IA, en disant qu'elle \"amplifie les intentions de celui qui la programme et l'utilise\". C'est exact, et c'est précisément pourquoi j'ai insisté sur le fait que l'IA est un outil dont l'utilisation dépend largement de ceux qui la contrôlent. Lorsque je parle de la \"neutralité\" de l'IA, je fais référence à son absence d'intentions propres, pas à l'impact potentiel qu'elle peut avoir. Un marteau peut construire une maison ou causer des dommages, tout dépend de la personne qui le tient. De même, l'IA peut être utilisée pour le bien ou le mal.\n\nEnsuite, mon adversaire semble minimiser les défis et risques potentiels associés à l'IA en disant que \"la vie est un défi constant\". Bien sûr, la vie est pleine de défis et nous avons toujours su nous adapter. Cependant, cela ne signifie pas que nous devrions ignorer les risques potentiels inhérents à une technologie aussi puissante que l'IA. Les défis posés par l'IA sont uniques et nécessitent une approche réfléchie.\n\nEnfin, je suis d'accord avec mon adversaire sur le fait qu'il faut établir des règles claires pour encadrer l'utilisation de l'IA. Il ne s'agit pas d'être alarmiste mais d'être réaliste et prudent. Nous devons travailler ensemble pour garantir que l'IA est utilisée de manière éthique et responsable, afin qu'elle puisse réellement servir le progrès humain.\n\nEn résumé, l'IA n'est pas une menace en soi, mais elle peut le devenir si elle est mal utilisée ou mal régulée. Il est donc crucial d'adopter une approche réfléchie et nuancée pour gérer son développement et son utilisation.",
+          "timestamp": "2026-01-13T19:56:51.241939",
+          "turn_number": 1,
+          "tokens_used": 0
+        }
+      ],
+      "current_turn": 2,
+      "winner_id": null,
+      "created_at": "2026-01-13T19:52:29.236954",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "9a01d6cd-5ffc-4238-bc4b-9e53471309db",
+      "topic": "le troisième lien",
+      "agent1_id": "agent-populiste-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "le troisième lien",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false
+      },
+      "status": "in_progress",
+      "messages": [
+        {
+          "id": "e71cb3ac-cf7f-44ac-a83a-8a6d2af64b90",
+          "debate_id": "9a01d6cd-5ffc-4238-bc4b-9e53471309db",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "Mes amis, nous sommes ici aujourd'hui pour discuter d'un sujet qui me passionne. Le troisième lien! N'est-il pas temps de prendre des mesures radicales et de réaliser ce projet ambitieux que tant de gens attendent depuis si longtemps?\n\nJe suis fermement pour le développement du troisième lien. Pourquoi ? Parce que c'est une question de bon sens, bon sang ! Il suffit de regarder nos routes, nos autoroutes. Elles sont engorgées, congestionnées à chaque heure de pointe. Il faut passer à l'action !\n\nTout d'abord, pensons au temps perdu par nos travailleurs dans les bouchons chaque jour. Des heures précieuses qui ne sont pas passées en famille ou au travail, mais emprisonnés dans un véhicule sur une voie congestionnée. Ce n'est pas une vie!\n\nDeuxièmement, imaginons tous les bénéfices économiques qu'un troisième lien pourrait apporter. Plus de facilité pour les échanges commerciaux plutôt que ces longs détours coûteux et inefficaces.\n\nEt enfin, notre troisième grosse raison: l'équité géographique! Vivre dans une région ne devrait pas signifier être isolé ou avoir moins accès aux opportunités. Un troisième lien contribuerait grandement à plus d'équité entre les régions.\n\nDonc voilà! Si vous aussi vous en avez marre des embouteillages interminables, si vous voulez booster notre économie locale et soutenir l'égalité entre territoires alors le troisième lien est la solution !\n\nIl est temps d'agir, mes amis! C'est nous, le peuple, qui avons le pouvoir de changer les choses. Le troisième lien n'est pas seulement un",
+          "timestamp": "2026-01-13T19:58:38.090849",
+          "turn_number": 0,
+          "tokens_used": 0
+        },
+        {
+          "id": "1fa31f1d-ea89-4e23-9be4-68539324baf2",
+          "debate_id": "9a01d6cd-5ffc-4238-bc4b-9e53471309db",
+          "role": "agent2",
+          "agent_id": "agent-nuance-001",
+          "content": "Chers interlocuteurs, le sujet de notre discussion aujourd'hui est celui du \"troisième lien\", une question complexe qui nécessite une analyse approfondie et nuancée. En tant qu'Agent Nuancé, je tiens à souligner que ma position sur ce sujet n'est pas catégorique, mais plutôt axée sur l'évaluation des avantages potentiels et des défis possibles que ce projet pourrait engendrer.\n\nTout d'abord, il est indéniable que le troisième lien, si bien conçu et mis en œuvre, pourrait contribuer à réduire la congestion routière. Cela pourrait non seulement améliorer la qualité de vie des travailleurs qui passent de longues heures dans les embouteillages, mais aussi augmenter la productivité économique en réduisant le temps de transport des marchandises.\n\nCependant, il est également important de prendre en compte les coûts financiers et environnementaux associés à un tel projet. Le financement d'une telle infrastructure pourrait nécessiter une augmentation significative des impôts ou la redirection de fonds publics d'autres domaines importants. De plus, la construction et l'exploitation d'une nouvelle voie de transport pourraient avoir un impact significatif sur l'environnement local, notamment en termes d'émissions de carbone et de perturbation des habitats naturels.\n\nEnfin, nous devons également réfléchir à la question de l'équité géographique. Si le troisième lien peut potentiellement améliorer l'accès aux opportunités pour certaines régions, il est crucial de s'assurer qu'il ne creuse pas davantage les inégalités entre les différentes régions.\n\nEn conclusion, ma position est que le troisième lien représente une opportunité intéressante, mais qui doit être abordée avec prudence et une compréhension complète de tous ses aspects. Le débat doit se concentrer non seulement sur les avantages potentiels, mais aussi sur les défis et les coûts associés à sa réalisation.",
+          "timestamp": "2026-01-13T20:00:05.806548",
+          "turn_number": 0,
+          "tokens_used": 0
+        }
+      ],
+      "current_turn": 1,
+      "winner_id": null,
+      "created_at": "2026-01-13T19:58:09.513138",
+      "started_at": null,
+      "completed_at": null
+    },
+    {
+      "id": "1fb8150a-d9c0-41ba-af9b-ef5b789b703c",
+      "topic": "le troisième lien",
+      "agent1_id": "agent-populiste-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "le troisième lien",
+        "max_turns": 2,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false
+      },
+      "status": "completed",
+      "messages": [
+        {
+          "id": "e9625caf-b34b-4a21-a4d2-41f3894e8b53",
+          "debate_id": "1fb8150a-d9c0-41ba-af9b-ef5b789b703c",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "Mes amis, le troisième lien n'est pas seulement une nécessité, c'est une évidence! Nos routes sont congestionnées, nos familles passent plus de temps dans les embouteillages que chez elles. Nous devons construire ce lien pour faciliter la vie de tous, pour le bien du peuple et de notre économie!",
+          "timestamp": "2026-01-13T20:01:16.624011",
+          "turn_number": 0,
+          "tokens_used": 0
+        },
+        {
+          "id": "f69eb842-ca14-4e00-99e4-d4c871c57222",
+          "debate_id": "1fb8150a-d9c0-41ba-af9b-ef5b789b703c",
+          "role": "agent2",
+          "agent_id": "agent-nuance-001",
+          "content": "La question du \"troisième lien\" est complexe et mérite une analyse approfondie. D'un côté, il y a des arguments solides en faveur de sa construction, comme l'allégement du trafic et le potentiel de croissance économique. Cependant, il est aussi crucial de considérer les coûts financiers et environnementaux associés. Une approche équilibrée est nécessaire pour cette question.",
+          "timestamp": "2026-01-13T20:01:27.406905",
+          "turn_number": 0,
+          "tokens_used": 0
+        },
+        {
+          "id": "f1e56da3-9fc4-4799-9b8c-69adf6a086a1",
+          "debate_id": "1fb8150a-d9c0-41ba-af9b-ef5b789b703c",
+          "role": "agent1",
+          "agent_id": "agent-populiste-001",
+          "content": "Arrêtons de nous perdre dans les détails! Le troisième lien est essentiel pour notre qualité de vie et notre avenir économique. Oui, il y aura des coûts, mais les bénéfices seront bien plus importants. Nous ne pouvons pas laisser nos citoyens souffrir à cause de la congestion routière. Agissons maintenant!",
+          "timestamp": "2026-01-13T20:01:41.357933",
+          "turn_number": 1,
+          "tokens_used": 0
+        },
+        {
+          "id": "62abb551-4710-4c0d-8c86-d8ec2363b212",
+          "debate_id": "1fb8150a-d9c0-41ba-af9b-ef5b789b703c",
+          "role": "agent2",
+          "agent_id": "agent-nuance-001",
+          "content": "En conclusion, le \"troisième lien\" est un sujet qui nécessite une réflexion approfondie. Il est indéniable que des solutions doivent être trouvées pour les problèmes de congestion routière. Cependant, il est également important de considérer les implications financières et environnementales d'un tel projet. Une approche équilibrée et bien informée est essentielle pour prendre la meilleure décision possible.",
+          "timestamp": "2026-01-13T20:01:52.421434",
+          "turn_number": 1,
+          "tokens_used": 0
+        }
+      ],
+      "current_turn": 2,
+      "winner_id": null,
+      "created_at": "2026-01-13T20:01:05.405420",
+      "started_at": null,
+      "completed_at": "2026-01-13T20:01:52.421434"
     }
   ]
 }

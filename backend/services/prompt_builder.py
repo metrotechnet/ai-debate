@@ -1,5 +1,5 @@
-from models.agent import AgentConfig
-from models.debate import Debate, DebateMessage
+from backend.models.agent import AgentConfig
+from backend.models.debate import Debate, DebateMessage
 from typing import List
 
 
@@ -88,7 +88,41 @@ class PromptBuilder:
         prompt_parts.append(f"- Réponds UNIQUEMENT en français")
         prompt_parts.append(f"- Reste fidèle à ton style et ta personnalité")
         prompt_parts.append(f"- Ne sors JAMAIS de ton rôle")
+        if debate.config.short_responses:
+            prompt_parts.append(f"- IMPORTANT: Donne des réponses COURTES (maximum 2-3 phrases)")
         prompt_parts.append(f"- Sujet du débat: {debate.topic}")
+        
+        return "\n".join(prompt_parts)
+    
+    @staticmethod
+    def build_agent_prompt(agent: AgentConfig, user_prompt: str = None, debate: 'Debate' = None) -> str:
+        """Construit un prompt simple pour un agent sans contexte de débat complet"""
+        prompt_parts = []
+        
+        # Introduction et rôle
+        prompt_parts.append(f"Tu es {agent.name}, un agent de débat IA.")
+        prompt_parts.append(f"Description: {agent.description}")
+        
+        # Style et personnalité
+        prompt_parts.append(f"\n## Style de débat")
+        prompt_parts.append(f"- Style: {agent.debate_style}")
+        prompt_parts.append(f"- Ton: {agent.tone}")
+        prompt_parts.append(f"- Intensité émotionnelle: {agent.emotional_intensity}/10")
+        
+        if agent.personality_traits:
+            traits = ", ".join(agent.personality_traits)
+            prompt_parts.append(f"- Traits de personnalité: {traits}")
+        
+        # Instructions générales
+        prompt_parts.append(f"\n## Instructions")
+        prompt_parts.append("Réponds de manière cohérente avec ton style et ta personnalité.")
+        prompt_parts.append("Argumente de façon structurée et pertinente.")
+        if debate and debate.config.short_responses:
+            prompt_parts.append("IMPORTANT: Donne des réponses COURTES (maximum 2-3 phrases).")
+        
+        if user_prompt:
+            prompt_parts.append(f"\n## Question/Sujet")
+            prompt_parts.append(user_prompt)
         
         return "\n".join(prompt_parts)
     

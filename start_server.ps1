@@ -1,15 +1,12 @@
-# Script de démarrage du serveur AI Debate
-Write-Host "🚀 Démarrage du serveur AI Debate..." -ForegroundColor Green
+# Script de démarrage du serveur Agora IA
+Write-Host "🚀 Démarrage du serveur Agora IA..." -ForegroundColor Green
 
 # Activer l'environnement virtuel
 & ".\.venv\Scripts\Activate.ps1"
 
-# Aller dans le dossier backend
-Set-Location backend
-
-# Lancer le serveur
-Write-Host "📡 Serveur disponible sur http://localhost:8000" -ForegroundColor Cyan
-Write-Host "📚 Documentation API: http://localhost:8000/docs" -ForegroundColor Cyan
+# Lancer le serveur avec uvicorn depuis la racine du projet
+Write-Host "📡 Serveur disponible sur http://localhost:8001" -ForegroundColor Cyan
+Write-Host "📚 Documentation API: http://localhost:8001/docs" -ForegroundColor Cyan
 Write-Host "Appuyez sur Ctrl+C pour arrêter le serveur" -ForegroundColor Yellow
 
-python main.py
+uvicorn backend.main:app --host 0.0.0.0 --port 8001

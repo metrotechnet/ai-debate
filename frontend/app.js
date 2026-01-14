@@ -23,6 +23,7 @@ const elements = {
     maxTurns: document.getElementById('max-turns'),
     openingStatements: document.getElementById('opening-statements'),
     closingStatements: document.getElementById('closing-statements'),
+    shortResponses: document.getElementById('short-responses'),
     debateArena: document.getElementById('debate-arena'),
     debateMessages: document.getElementById('debate-messages'),
     debateInfo: document.getElementById('debate-info'),
@@ -233,7 +234,8 @@ elements.startDebateBtn.addEventListener('click', async () => {
             topic: topic,
             max_turns: parseInt(elements.maxTurns.value),
             opening_statement_required: elements.openingStatements.checked,
-            closing_statement_required: elements.closingStatements.checked,
+                closing_statement_required: elements.closingStatements.checked,
+                short_responses: elements.shortResponses.checked,
             allow_questions: true,
             moderated: false
         },
@@ -258,36 +260,129 @@ elements.nextTurnBtn.addEventListener('click', async () => {
     elements.nextTurnBtn.textContent = 'Génération en cours...';
     
     try {
-        const response = await fetch(`${API_BASE_URL}/debates/${state.currentDebate.id}/next-turn`, {
+        // Utiliser fetch + ReadableStream pour consommer le flux SSE renvoyé par le serveur
+        const resp = await fetch(`${API_BASE_URL}/debates/${state.currentDebate.id}/next-turn/stream`, {
             method: 'POST'
         });
-        
-        if (!response.ok) {
-            const error = await response.json();
-            throw new Error(error.detail || 'Erreur lors de la génération');
+
+        if (!resp.ok) {
+            const err = await resp.json();
+            throw new Error(err.detail || 'Erreur lors de la génération');
         }
-        
-        const data = await response.json();
-        
-        // Mettre à jour le débat local
-        state.currentDebate = data.debate;
-        
-        // Afficher le nouveau message
-        const agent = state.agents.find(a => a.id === data.message.agent_id);
-        const agentClass = data.message.role === 'agent1' ? 'agent1' : 'agent2';
-        const agentName = agent ? agent.name : data.message.role;
-        
-        addMessageToDebate(data.message, agentClass, agentName);
-        displayDebateInfo();
-        
-        // Vérifier si le débat est terminé
-        if (state.currentDebate.status === 'completed') {
-            elements.nextTurnBtn.disabled = true;
-            elements.nextTurnBtn.textContent = 'Débat terminé';
-            showSuccess('Le débat est terminé !');
-        } else {
-            elements.nextTurnBtn.disabled = false;
-            elements.nextTurnBtn.textContent = 'Tour suivant';
+
+        const reader = resp.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = '';
+
+        // Préparer un message temporaire en UI
+        const isAgent1Turn = (state.currentDebate.messages.length % 2) === 0;
+        const currentAgent = isAgent1Turn ? state.agents.find(a => a.id === state.currentDebate.agent1_id) : state.agents.find(a => a.id === state.currentDebate.agent2_id);
+        const agentClass = isAgent1Turn ? 'agent1' : 'agent2';
+        const agentName = currentAgent ? currentAgent.name : (isAgent1Turn ? 'agent1' : 'agent2');
+
+        // Placeholder DOM element
+        const placeholderMsg = {
+            content: '' ,
+            turn_number: state.currentDebate.current_turn,
+            agent_id: currentAgent ? currentAgent.id : null,
+            role: isAgent1Turn ? 'agent1' : 'agent2'
+        };
+
+        // Afficher une ligne vide qui sera remplie au fil du streaming
+        const placeholderDiv = document.createElement('div');
+        placeholderDiv.className = `message ${agentClass}`;
+        placeholderDiv.innerHTML = `
+            <div class="message-header">
+                <span>${agentName}</span>
+                <span>Tour ${placeholderMsg.turn_number}</span>
+            </div>
+            <div class="message-content">...</div>
+        `;
+        elements.debateMessages.appendChild(placeholderDiv);
+        elements.debateMessages.scrollTop = elements.debateMessages.scrollHeight;
+
+        // Helper pour échapper le HTML
+        function escapeHtml(unsafe) {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        // Lire le flux
+        while (true) {
+            const { value, done } = await reader.read();
+            if (done) break;
+            buffer += decoder.decode(value, { stream: true });
+
+            // Les événements SSE sont séparés par double saut de ligne
+            const parts = buffer.split('\n\n');
+            buffer = parts.pop();
+
+            for (const part of parts) {
+                if (!part) continue;
+                const lines = part.split('\n');
+                for (const line of lines) {
+                    if (!line.startsWith('data:')) continue;
+                    const jsonText = line.replace(/^data:\s*/, '');
+                    let payload = null;
+                    try {
+                        payload = JSON.parse(jsonText);
+                    } catch (e) {
+                        console.error('Erreur parsing payload streaming', e, jsonText);
+                        continue;
+                    }
+
+                    if (payload.type === 'token') {
+                        // Ajouter le segment au placeholder
+                        placeholderMsg.content += payload.text;
+                        let contentDiv = placeholderDiv.querySelector('.message-content');
+                        if (!contentDiv) {
+                            contentDiv = document.createElement('div');
+                            contentDiv.className = 'message-content';
+                            placeholderDiv.appendChild(contentDiv);
+                        }
+                        // Utiliser innerHTML en échappant pour préserver retours à la ligne
+                        contentDiv.innerHTML = escapeHtml(placeholderMsg.content).replace(/\n/g, '<br>');
+                        elements.debateMessages.scrollTop = elements.debateMessages.scrollHeight;
+                    } else if (payload.type === 'done') {
+                        // Finaliser le message
+                        placeholderMsg.content = payload.message.content;
+                        let contentDiv = placeholderDiv.querySelector('.message-content');
+                        if (!contentDiv) {
+                            contentDiv = document.createElement('div');
+                            contentDiv.className = 'message-content';
+                            placeholderDiv.appendChild(contentDiv);
+                        }
+                        contentDiv.innerHTML = escapeHtml(placeholderMsg.content).replace(/\n/g, '<br>');
+
+                        // Récupérer l'état final du débat côté serveur pour mise à jour
+                        try {
+                            const finalResp = await fetch(`${API_BASE_URL}/debates/${state.currentDebate.id}`);
+                            if (finalResp.ok) {
+                                state.currentDebate = await finalResp.json();
+                            }
+                        } catch (e) {
+                            console.warn('Impossible d\'obtenir le débat final:', e);
+                        }
+
+                        displayDebateInfo();
+
+                        if (state.currentDebate.status === 'completed') {
+                            elements.nextTurnBtn.disabled = true;
+                            elements.nextTurnBtn.textContent = 'Débat terminé';
+                            showSuccess('Le débat est terminé !');
+                        } else {
+                            elements.nextTurnBtn.disabled = false;
+                            elements.nextTurnBtn.textContent = 'Tour suivant';
+                        }
+                    } else if (payload.type === 'error') {
+                        throw new Error(payload.detail || 'Erreur streaming');
+                    }
+                }
+            }
         }
         
     } catch (error) {
