@@ -1,7 +1,9 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
+from backend.models.agent import ResponseLength
 from datetime import datetime
 from enum import Enum
+from typing import Dict
 
 
 class MessageRole(str, Enum):
@@ -42,7 +44,13 @@ class DebateConfig(BaseModel):
     closing_statement_required: bool = Field(default=True, description="Déclaration de clôture obligatoire")
     allow_questions: bool = Field(default=True, description="Permettre les questions")
     moderated: bool = Field(default=False, description="Débat modéré")
-    short_responses: bool = Field(default=True, description="Forcer les réponses courtes (2-3 phrases max)")
+    response_length: ResponseLength = Field(default=ResponseLength.MOYEN, description="Longueur des réponses: concis/moyen/verbeux")
+    short_responses: Optional[bool] = Field(default=None, description="Compatibilité: anciennes données utilisant short_responses")
+    # Position des agents dans le débat: valeurs possibles 'pour'|'contre'|'neutre'
+    agent1_position: Optional[str] = Field(default="pour", description="Position de l'agent1: pour/contre/neutre")
+    agent2_position: Optional[str] = Field(default="contre", description="Position de l'agent2: pour/contre/neutre")
+    # Optionnel: URL d'une page HTML ou d'un PDF dont le texte sera ajouté au contexte du débat
+    source_url: Optional[str] = Field(default=None, description="URL d'une page HTML ou d'un PDF à inclure dans le contexte du débat")
 
 
 class Debate(BaseModel):
@@ -59,6 +67,8 @@ class Debate(BaseModel):
     created_at: datetime = Field(default_factory=datetime.now)
     started_at: Optional[datetime] = None
     completed_at: Optional[datetime] = None
+    # Texte extrait de la source (si fournie) et ajouté au contexte
+    source_text: Optional[str] = None
     
     class Config:
         use_enum_values = True

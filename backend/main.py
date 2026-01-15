@@ -10,6 +10,10 @@ from pathlib import Path
 from datetime import datetime
 from backend.services.ai_service import AIService
 from backend.services.prompt_builder import PromptBuilder
+from backend.services.source_fetcher import fetch_source_text,topic_related_to_text
+import re
+
+
 
 app = FastAPI(
     title="Agora IA API",
@@ -447,6 +451,34 @@ async def start_debate(debate_id: str):
     
     debate.status = DebateStatus.IN_PROGRESS
     debate.started_at = datetime.now()
+    # Si une source URL est fournie, déléguer l'extraction au module `source_fetcher`
+    source_url = getattr(debate.config, 'source_url', None)
+    if source_url:
+        try:
+            extracted = fetch_source_text(source_url)
+            if extracted:
+                # Valider que le sujet du débat est en lien avec le texte extrait
+                if not topic_related_to_text(debate.topic, extracted):
+                    # Ne pas démarrer le débat si la source n'est pas pertinente
+                    raise HTTPException(status_code=400, detail="Le sujet du débat ne semble pas lié au contenu de la source fournie.")
+
+                debate.source_text = extracted
+                import uuid
+                snippet = extracted[:8000]
+                sys_msg = DebateMessage(
+                    id=str(uuid.uuid4()),
+                    debate_id=debate.id,
+                    role=MessageRole.SYSTEM,
+                    agent_id=None,
+                    content=f"Contexte provenant de {source_url}:\n\n{snippet}",
+                    timestamp=datetime.now(),
+                    turn_number=0,
+                    tokens_used=None
+                )
+                debate.messages.insert(0, sys_msg)
+        except Exception as e:
+            print(f"⚠️ Impossible de récupérer la source {source_url}: {e}")
+
     save_debates()
     
     return {"success": True, "debate": debate}

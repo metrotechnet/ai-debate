@@ -45,26 +45,35 @@
                         <input type="text" id="debate-topic" placeholder="Ex: L'intelligence artificielle est-elle une menace pour l'humanité?">
                     </div>
                     <div class="form-group">
+                        <label for="source-url">Lien source (URL) optionnel:</label>
+                        <input type="url" id="source-url" placeholder="https://example.com/article.html ou https://example.com/doc.pdf">
+                    </div>
+                    <div class="form-group">
                         <label for="max-turns">Nombre de tours:</label>
                         <input type="number" id="max-turns" value="10" min="1" max="50">
                     </div>
+                    <!-- Les déclarations d'ouverture et de clôture sont toujours activées côté serveur -->
                     <div class="form-group">
-                        <label>
-                            <input type="checkbox" id="opening-statements" checked>
-                            Déclarations d'ouverture
-                        </label>
+                        <label for="response-length">Longueur des réponses:</label>
+                        <select id="response-length">
+                            <option value="concis">Réponses courtes</option>
+                            <option value="moyen" selected>Réponses moyennes</option>
+                            <option value="verbeux">Réponses longues</option>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label>
-                            <input type="checkbox" id="closing-statements" checked>
-                            Déclarations de clôture
-                        </label>
+                        <label for="agent1-position">Position Agent 1:</label>
+                        <select id="agent1-position">
+                            <option value="pour">Pour</option>
+                            <option value="contre">Contre</option>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label>
-                            <input type="checkbox" id="short-responses" checked>
-                            Réponses courtes (2-3 phrases)
-                        </label>
+                        <label for="agent2-position">Position Agent 2:</label>
+                        <select id="agent2-position">
+                            <option value="contre">Contre</option>
+                            <option value="pour">Pour</option>
+                        </select>
                     </div>
                 </div>
                 <button id="start-debate-btn" class="btn btn-primary">Démarrer le débat</button>
@@ -72,15 +81,24 @@
 
             <!-- Section du débat en cours -->
             <section id="debate-arena" class="hidden">
-                <h2>Débat en cours</h2>
+                <h2>Débat en cours </h2>
                 <div id="debate-info" class="debate-header"></div>
                 <div id="debate-messages" class="messages-container"></div>
+                <p class="help-text">Cliquez sur "Tour suivant" pour continuer.</p>
                 <div class="debate-controls">
                     <button id="next-turn-btn" class="btn btn-primary">Tour suivant</button>
                     <button id="stop-debate-btn" class="btn btn-danger">Arrêter le débat</button>
                 </div>
             </section>
         </main>
+    </div>
+
+    <!-- Spinner overlay shown while backend prépare/scan la source -->
+    <div id="spinner-overlay" class="hidden">
+        <div class="spinner-box">
+            <div class="spinner"></div>
+            <p>Préparation du débat… Récupération du contenu de la source</p>
+        </div>
     </div>
 
     <!-- Modal pour créer un agent -->
@@ -146,5 +164,6 @@
     </div>
 
     <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

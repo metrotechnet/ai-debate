@@ -21,9 +21,10 @@ const elements = {
     stopDebateBtn: document.getElementById('stop-debate-btn'),
     debateTopic: document.getElementById('debate-topic'),
     maxTurns: document.getElementById('max-turns'),
-    openingStatements: document.getElementById('opening-statements'),
-    closingStatements: document.getElementById('closing-statements'),
-    shortResponses: document.getElementById('short-responses'),
+    sourceUrl: document.getElementById('source-url'),
+    responseLength: document.getElementById('response-length'),
+    agent1Position: document.getElementById('agent1-position'),
+    agent2Position: document.getElementById('agent2-position'),
     debateArena: document.getElementById('debate-arena'),
     debateMessages: document.getElementById('debate-messages'),
     debateInfo: document.getElementById('debate-info'),
@@ -130,10 +131,19 @@ function displayDebateInfo() {
     
     const agent1 = state.agents.find(a => a.id === state.currentDebate.agent1_id);
     const agent2 = state.agents.find(a => a.id === state.currentDebate.agent2_id);
-    
+    // Récupérer et formater les positions (pour/contre/neutre)
+    const pos1 = state.currentDebate.config && state.currentDebate.config.agent1_position ? state.currentDebate.config.agent1_position : null;
+    const pos2 = state.currentDebate.config && state.currentDebate.config.agent2_position ? state.currentDebate.config.agent2_position : null;
+    function humanizePos(p) {
+        if (!p) return 'Neutre';
+        if (p.toLowerCase() === 'pour') return 'Pour';
+        if (p.toLowerCase() === 'contre') return 'Contre';
+        return p.charAt(0).toUpperCase() + p.slice(1);
+    }
+
     elements.debateInfo.innerHTML = `
         <h3>📋 ${state.currentDebate.topic}</h3>
-        <p><strong>Agent 1:</strong> ${agent1?.name} vs <strong>Agent 2:</strong> ${agent2?.name}</p>
+        <p><strong>Agent 1:</strong> ${agent1?.name} <strong>(${humanizePos(pos1)})</strong> vs <strong>Agent 2:</strong> ${agent2?.name} <strong>(${humanizePos(pos2)})</strong></p>
         <p><strong>Tour:</strong> ${state.currentDebate.current_turn} / ${state.currentDebate.config.max_turns}</p>
         <p><strong>Statut:</strong> ${state.currentDebate.status}</p>
     `;
@@ -154,11 +164,40 @@ function addMessageToDebate(message, agentClass, agentName) {
 }
 
 function showError(message) {
-    alert('❌ ' + message);
+    if (window.Swal) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Erreur',
+            text: message
+        });
+    } else {
+        alert('❌ ' + message);
+    }
 }
 
 function showSuccess(message) {
-    alert('✅ ' + message);
+    if (window.Swal) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Succès',
+            text: message,
+            timer: 1400,
+            showConfirmButton: false
+        });
+    } else {
+        alert('✅ ' + message);
+    }
+}
+
+// Spinner helpers shown while backend prépare le débat (crawl / start)
+function showSpinner() {
+    const el = document.getElementById('spinner-overlay');
+    if (el) el.classList.remove('hidden');
+}
+
+function hideSpinner() {
+    const el = document.getElementById('spinner-overlay');
+    if (el) el.classList.add('hidden');
 }
 
 // ===== Event Handlers =====
@@ -215,10 +254,7 @@ elements.startDebateBtn.addEventListener('click', async () => {
         return;
     }
     
-    if (state.selectedAgent1.id === state.selectedAgent2.id) {
-        showError('Les deux agents doivent être différents.');
-        return;
-    }
+    
     
     const topic = elements.debateTopic.value.trim();
     if (!topic) {
@@ -233,21 +269,61 @@ elements.startDebateBtn.addEventListener('click', async () => {
         config: {
             topic: topic,
             max_turns: parseInt(elements.maxTurns.value),
-            opening_statement_required: elements.openingStatements.checked,
-                closing_statement_required: elements.closingStatements.checked,
-                short_responses: elements.shortResponses.checked,
+                    opening_statement_required: true,
+                    closing_statement_required: true,
+            response_length: elements.responseLength.value,
+                    agent1_position: elements.agent1Position ? elements.agent1Position.value : 'pour',
+                    agent2_position: elements.agent2Position ? elements.agent2Position.value : 'contre',
+                    source_url: elements.sourceUrl ? elements.sourceUrl.value.trim() || null : null,
             allow_questions: true,
             moderated: false
         },
-        status: "in_progress",
         messages: []
     };
     
     try {
         await createDebate(debateData);
+        // Appeler l'endpoint de démarrage pour que le backend puisse préparer le débat (ex: charger la source)
+        let started = true;
+        try {
+            // Afficher le spinner pendant que le backend prépare la source
+            showSpinner();
+            try {
+                const startResp = await fetch(`${API_BASE_URL}/debates/${state.currentDebate.id}/start`, {
+                    method: 'POST'
+                });
+                if (startResp.ok) {
+                    const startData = await startResp.json();
+                    // backend retourne { success: True, debate: debate }
+                    if (startData.debate) {
+                        state.currentDebate = startData.debate;
+                    }
+                } else {
+                    const text = await startResp.text();
+                    try {
+                        const err = JSON.parse(text);
+                        showError(err.detail || 'Erreur au démarrage du débat');
+                    } catch (e) {
+                        showError(text || 'Erreur au démarrage du débat');
+                    }
+                    started = false;
+                }
+            } catch (e) {
+                showError('Impossible de joindre le serveur pour démarrer le débat.');
+                started = false;
+            } finally {
+                hideSpinner();
+            }
+        } catch (error) {
+            // ne devrait pas arriver mais on s'assure de masquer le spinner
+            hideSpinner();
+            throw error;
+        }
+
+        if (!started) return;
+
         showDebateArena();
         displayDebateInfo();
-        showSuccess('Débat créé! Cliquez sur "Tour suivant" pour commencer.');
     } catch (error) {
         // Erreur déjà gérée dans createDebate
     }
@@ -393,10 +469,26 @@ elements.nextTurnBtn.addEventListener('click', async () => {
     }
 });
 
-elements.stopDebateBtn.addEventListener('click', () => {
-    if (confirm('Voulez-vous vraiment arrêter le débat?')) {
-        hideDebateArena();
-        state.currentDebate = null;
+elements.stopDebateBtn.addEventListener('click', async () => {
+    if (window.Swal) {
+        const res = await Swal.fire({
+            title: 'Confirmer',
+            text: 'Voulez-vous vraiment arrêter le débat?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Oui',
+            cancelButtonText: 'Annuler'
+        });
+
+        if (res.isConfirmed) {
+            hideDebateArena();
+            state.currentDebate = null;
+        }
+    } else {
+        if (confirm('Voulez-vous vraiment arrêter le débat?')) {
+            hideDebateArena();
+            state.currentDebate = null;
+        }
     }
 });
 

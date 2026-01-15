@@ -88,7 +88,20 @@ class PromptBuilder:
         prompt_parts.append(f"- Réponds UNIQUEMENT en français")
         prompt_parts.append(f"- Reste fidèle à ton style et ta personnalité")
         prompt_parts.append(f"- Ne sors JAMAIS de ton rôle")
-        if debate.config.short_responses:
+        # Indiquer la position que l'agent doit défendre (pour/contre/neutre) selon la configuration du débat
+        stance = None
+        try:
+            if hasattr(agent, 'id') and debate:
+                if agent.id == debate.agent1_id:
+                    stance = getattr(debate.config, 'agent1_position', None)
+                elif agent.id == debate.agent2_id:
+                    stance = getattr(debate.config, 'agent2_position', None)
+        except Exception:
+            stance = None
+
+        if stance:
+            prompt_parts.append(f"- Position à défendre: {stance.upper()}")
+        if getattr(debate.config, 'response_length', None) == "concis" or getattr(debate.config, 'short_responses', False):
             prompt_parts.append(f"- IMPORTANT: Donne des réponses COURTES (maximum 2-3 phrases)")
         prompt_parts.append(f"- Sujet du débat: {debate.topic}")
         
@@ -117,7 +130,20 @@ class PromptBuilder:
         prompt_parts.append(f"\n## Instructions")
         prompt_parts.append("Réponds de manière cohérente avec ton style et ta personnalité.")
         prompt_parts.append("Argumente de façon structurée et pertinente.")
-        if debate and debate.config.short_responses:
+        # Indiquer la position que l'agent doit défendre si fournie via le débat
+        if debate and hasattr(agent, 'id'):
+            try:
+                if agent.id == debate.agent1_id:
+                    pos = getattr(debate.config, 'agent1_position', None)
+                elif agent.id == debate.agent2_id:
+                    pos = getattr(debate.config, 'agent2_position', None)
+                else:
+                    pos = None
+                if pos:
+                    prompt_parts.append(f"- Tu dois défendre la position: {pos.upper()}")
+            except Exception:
+                pass
+        if debate and (getattr(debate.config, 'response_length', None) == "concis" or getattr(debate.config, 'short_responses', False)):
             prompt_parts.append("IMPORTANT: Donne des réponses COURTES (maximum 2-3 phrases).")
         
         if user_prompt:
