@@ -1,12 +1,14 @@
 // Configuration de l'API
-const API_BASE_URL = 'http://localhost:8001';
+const API_BASE_URL = 'https://ai-debate-api-66nr2u3stq-uk.a.run.app';
 
 // État de l'application
 const state = {
     agents: [],
+    preconfiguredDebates: [],
     currentDebate: null,
     selectedAgent1: null,
-    selectedAgent2: null
+    selectedAgent2: null,
+    selectedPreconfiguredDebate: null
 };
 
 // Éléments DOM
@@ -19,12 +21,9 @@ const elements = {
     startDebateBtn: document.getElementById('start-debate-btn'),
     nextTurnBtn: document.getElementById('next-turn-btn'),
     stopDebateBtn: document.getElementById('stop-debate-btn'),
-    debateTopic: document.getElementById('debate-topic'),
-    maxTurns: document.getElementById('max-turns'),
-    sourceUrl: document.getElementById('source-url'),
-    responseLength: document.getElementById('response-length'),
-    agent1Position: document.getElementById('agent1-position'),
-    agent2Position: document.getElementById('agent2-position'),
+    preconfiguredDebatesSelect: document.getElementById('preconfigured-debates'),
+    responseLengthSelect: document.getElementById('response-length'),
+    debateDetails: document.getElementById('debate-details'),
     debateArena: document.getElementById('debate-arena'),
     debateMessages: document.getElementById('debate-messages'),
     debateInfo: document.getElementById('debate-info'),
@@ -44,6 +43,22 @@ async function fetchAgents() {
     } catch (error) {
         console.error('Erreur:', error);
         showError('Impossible de charger les agents. Vérifiez que le serveur est démarré.');
+    }
+}
+
+async function fetchPreconfiguredDebates() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/debates`);
+        if (!response.ok) throw new Error('Erreur lors du chargement des débats');
+        const data = await response.json();
+        state.preconfiguredDebates = data.debates || [];
+        //display debates
+        //display json data in console for debugging
+        console.log('Débats préconfigurés chargés:', state.preconfiguredDebates);
+        updatePreconfiguredDebatesSelect();
+    } catch (error) {
+        console.error('Erreur:', error);
+        showError('Impossible de charger les débats préconfigurés.');
     }
 }
 
@@ -98,6 +113,38 @@ function updateAgentSelects() {
     elements.agent2Select.innerHTML = '<option value="">Sélectionner un agent...</option>' + options;
 }
 
+function updatePreconfiguredDebatesSelect() {
+    const options = state.preconfiguredDebates
+        .filter(debate => debate.status === 'pending')
+        .map(debate => 
+            `<option value="${debate.id}">${debate.topic}</option>`
+        ).join('');
+    //display debates
+    elements.preconfiguredDebatesSelect.innerHTML = '<option value="">Sélectionner un débat...</option>' + options;
+}
+
+function displayDebateDetails(debate) {
+    if (!debate) {
+        elements.debateDetails.classList.add('hidden');
+        return;
+    }
+    
+    const agent1 = state.agents.find(a => a.id === debate.agent1_id);
+    const agent2 = state.agents.find(a => a.id === debate.agent2_id);
+    
+    const responseLength = elements.responseLengthSelect.value || 'moyen';
+    
+    document.getElementById('selected-topic').textContent = debate.topic;
+    document.getElementById('selected-agent1').textContent = agent1?.name || debate.agent1_id;
+    document.getElementById('selected-agent2').textContent = agent2?.name || debate.agent2_id;
+    document.getElementById('selected-pos1').textContent = debate.config?.agent1_position || 'pour';
+    document.getElementById('selected-pos2').textContent = debate.config?.agent2_position || 'contre';
+    document.getElementById('selected-turns').textContent = debate.config?.max_turns || 10;
+    document.getElementById('selected-length').textContent = responseLength.charAt(0).toUpperCase() + responseLength.slice(1);
+    
+    elements.debateDetails.classList.remove('hidden');
+}
+
 function displayAgentInfo(agent, infoElement) {
     if (!agent) {
         infoElement.innerHTML = '';
@@ -144,7 +191,7 @@ function displayDebateInfo() {
     elements.debateInfo.innerHTML = `
         <h3>📋 ${state.currentDebate.topic}</h3>
         <p><strong>Agent 1:</strong> ${agent1?.name} <strong>(${humanizePos(pos1)})</strong> vs <strong>Agent 2:</strong> ${agent2?.name} <strong>(${humanizePos(pos2)})</strong></p>
-        <p><strong>Tour:</strong> ${state.currentDebate.current_turn} / ${state.currentDebate.config.max_turns}</p>
+        <p><strong>Tour:</strong> ${state.currentDebate.current_turn+1} / ${state.currentDebate.config.max_turns}</p>
         <p><strong>Statut:</strong> ${state.currentDebate.status}</p>
     `;
 }
@@ -155,7 +202,7 @@ function addMessageToDebate(message, agentClass, agentName) {
     messageDiv.innerHTML = `
         <div class="message-header">
             <span>${agentName}</span>
-            <span>Tour ${message.turn_number}</span>
+            <span>Tour ${message.turn_number + 1}</span>
         </div>
         <div class="message-content">${message.content}</div>
     `;
@@ -205,11 +252,56 @@ function hideSpinner() {
 elements.agent1Select.addEventListener('change', (e) => {
     state.selectedAgent1 = state.agents.find(a => a.id === e.target.value);
     displayAgentInfo(state.selectedAgent1, elements.agent1Info);
+    
+    // Mettre à jour le débat préconfiguré sélectionné avec le nouvel agent
+    if (state.selectedPreconfiguredDebate && state.selectedAgent1) {
+        state.selectedPreconfiguredDebate.agent1_id = state.selectedAgent1.id;
+        displayDebateDetails(state.selectedPreconfiguredDebate);
+    }
 });
 
 elements.agent2Select.addEventListener('change', (e) => {
     state.selectedAgent2 = state.agents.find(a => a.id === e.target.value);
     displayAgentInfo(state.selectedAgent2, elements.agent2Info);
+    
+    // Mettre à jour le débat préconfiguré sélectionné avec le nouvel agent
+    if (state.selectedPreconfiguredDebate && state.selectedAgent2) {
+        state.selectedPreconfiguredDebate.agent2_id = state.selectedAgent2.id;
+        displayDebateDetails(state.selectedPreconfiguredDebate);
+    }
+});
+
+elements.preconfiguredDebatesSelect.addEventListener('change', (e) => {
+    const debateId = e.target.value;
+    state.selectedPreconfiguredDebate = state.preconfiguredDebates.find(d => d.id === debateId);
+    
+    // Mettre à jour automatiquement les agents sélectionnés si le débat en a
+    if (state.selectedPreconfiguredDebate) {
+        if (state.selectedPreconfiguredDebate.agent1_id) {
+            elements.agent1Select.value = state.selectedPreconfiguredDebate.agent1_id;
+            state.selectedAgent1 = state.agents.find(a => a.id === state.selectedPreconfiguredDebate.agent1_id);
+            displayAgentInfo(state.selectedAgent1, elements.agent1Info);
+        }
+        
+        if (state.selectedPreconfiguredDebate.agent2_id) {
+            elements.agent2Select.value = state.selectedPreconfiguredDebate.agent2_id;
+            state.selectedAgent2 = state.agents.find(a => a.id === state.selectedPreconfiguredDebate.agent2_id);
+            displayAgentInfo(state.selectedAgent2, elements.agent2Info);
+        }
+        
+        // Mettre à jour la longueur des réponses selon la config du débat
+        if (state.selectedPreconfiguredDebate.config?.response_length) {
+            elements.responseLengthSelect.value = state.selectedPreconfiguredDebate.config.response_length;
+        }
+    }
+    
+    displayDebateDetails(state.selectedPreconfiguredDebate);
+});
+
+elements.responseLengthSelect.addEventListener('change', () => {
+    if (state.selectedPreconfiguredDebate) {
+        displayDebateDetails(state.selectedPreconfiguredDebate);
+    }
 });
 
 elements.createAgentBtn.addEventListener('click', () => {
@@ -249,41 +341,42 @@ elements.agentForm.addEventListener('submit', async (e) => {
 });
 
 elements.startDebateBtn.addEventListener('click', async () => {
+    if (!state.selectedPreconfiguredDebate) {
+        showError('Veuillez sélectionner un débat préconfiguré.');
+        return;
+    }
+    
     if (!state.selectedAgent1 || !state.selectedAgent2) {
-        showError('Veuillez sélectionner deux agents.');
+        showError('Les agents ne sont pas correctement sélectionnés.');
         return;
     }
-    
-    
-    
-    const topic = elements.debateTopic.value.trim();
-    if (!topic) {
-        showError('Veuillez entrer un sujet de débat.');
-        return;
-    }
-    
-    const debateData = {
-        topic: topic,
-        agent1_id: state.selectedAgent1.id,
-        agent2_id: state.selectedAgent2.id,
-        config: {
-            topic: topic,
-            max_turns: parseInt(elements.maxTurns.value),
-                    opening_statement_required: true,
-                    closing_statement_required: true,
-            response_length: elements.responseLength.value,
-                    agent1_position: elements.agent1Position ? elements.agent1Position.value : 'pour',
-                    agent2_position: elements.agent2Position ? elements.agent2Position.value : 'contre',
-                    source_url: elements.sourceUrl ? elements.sourceUrl.value.trim() || null : null,
-            allow_questions: true,
-            moderated: false
-        },
-        messages: []
-    };
     
     try {
-        await createDebate(debateData);
-        // Appeler l'endpoint de démarrage pour que le backend puisse préparer le débat (ex: charger la source)
+        // Préparer la configuration du débat avec les agents sélectionnés
+        const responseLength = elements.responseLengthSelect.value || 'moyen';
+        
+        const debateConfig = {
+            topic: state.selectedPreconfiguredDebate.topic,
+            agent1_id: state.selectedAgent1.id,
+            agent2_id: state.selectedAgent2.id,
+            config: {
+                agent1_position: state.selectedPreconfiguredDebate.config?.agent1_position || 'pour',
+                agent2_position: state.selectedPreconfiguredDebate.config?.agent2_position || 'contre',
+                max_turns: state.selectedPreconfiguredDebate.config?.max_turns || 10,
+                source_url: state.selectedPreconfiguredDebate.config?.source_url || null,
+                response_length: responseLength
+            }
+        };
+        
+        // Créer le débat côté serveur avec la configuration complète
+        state.currentDebate = await createDebate(debateConfig);
+        
+        if (!state.currentDebate) {
+            showError('Échec de la création du débat.');
+            return;
+        }
+        
+        // Appeler l'endpoint de démarrage pour que le backend puisse préparer le débat
         let started = true;
         try {
             // Afficher le spinner pendant que le backend prépare la source
@@ -370,7 +463,7 @@ elements.nextTurnBtn.addEventListener('click', async () => {
         placeholderDiv.innerHTML = `
             <div class="message-header">
                 <span>${agentName}</span>
-                <span>Tour ${placeholderMsg.turn_number}</span>
+                <span>Tour ${placeholderMsg.turn_number+1}</span>
             </div>
             <div class="message-content">...</div>
         `;
@@ -447,9 +540,11 @@ elements.nextTurnBtn.addEventListener('click', async () => {
                         displayDebateInfo();
 
                         if (state.currentDebate.status === 'completed') {
-                            elements.nextTurnBtn.disabled = true;
-                            elements.nextTurnBtn.textContent = 'Débat terminé';
                             showSuccess('Le débat est terminé !');
+                            setTimeout(() => {
+                                hideDebateArena();
+                                state.currentDebate = null;
+                            }, 1500);
                         } else {
                             elements.nextTurnBtn.disabled = false;
                             elements.nextTurnBtn.textContent = 'Tour suivant';
@@ -505,6 +600,7 @@ window.addEventListener('click', (e) => {
 async function init() {
     console.log('🚀 Initialisation de l\'application AI Debate...');
     await fetchAgents();
+    await fetchPreconfiguredDebates();
     console.log('✅ Application prête!');
 }
 

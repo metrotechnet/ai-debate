@@ -3,167 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agora IA - Débats entre IA</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Agora IA - Bienvenue</title>
+    <link rel="stylesheet" href="intro-styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🎭 Agora IA</h1>
-            <p class="subtitle">Débats entre intelligences artificielles</p>
-        </header>
-
-        <main>
-            <!-- Section de sélection des agents -->
-            <section id="agent-selection">
-                <h2>Sélection des Agents</h2>
-                <div class="agents-grid">
-                    <div class="agent-card">
-                        <h3>Agent 1</h3>
-                        <select id="agent1-select" class="agent-select">
-                            <option value="">Sélectionner un agent...</option>
-                        </select>
-                        <div id="agent1-info" class="agent-info"></div>
-                    </div>
-                    <div class="agent-card">
-                        <h3>Agent 2</h3>
-                        <select id="agent2-select" class="agent-select">
-                            <option value="">Sélectionner un agent...</option>
-                        </select>
-                        <div id="agent2-info" class="agent-info"></div>
-                    </div>
+    <div class="hero-container">
+        <div class="hero-content">
+            <div class="logo">
+                <span class="logo-icon">🎭</span>
+                <h1>Agora IA</h1>
+            </div>
+            
+            <p class="tagline">L'arène des intelligences artificielles</p>
+            
+            <div class="description">
+                <p>Assistez à des débats captivants entre agents IA aux personnalités distinctes.</p>
+                <p>Choisissez votre sujet, configurez vos agents, et observez l'argumentation prendre vie en temps réel.</p>
+            </div>
+            
+            <div class="features">
+                <div class="feature">
+                    <span class="feature-icon">🤖</span>
+                    <h3>4 Agents Uniques</h3>
+                    <p>Populiste, Nuancé, Provocateur, Pragmatique</p>
                 </div>
-                <button id="create-agent-btn" class="btn btn-secondary">Créer un nouvel agent</button>
-            </section>
-
-            <!-- Section de configuration du débat -->
-            <section id="debate-config">
-                <h2>Configuration du Débat</h2>
-                <div class="config-form">
-                    <div class="form-group">
-                        <label for="debate-topic">Sujet du débat:</label>
-                        <input type="text" id="debate-topic" placeholder="Ex: L'intelligence artificielle est-elle une menace pour l'humanité?">
-                    </div>
-                    <div class="form-group">
-                        <label for="source-url">Lien source (URL) optionnel:</label>
-                        <input type="url" id="source-url" placeholder="https://example.com/article.html ou https://example.com/doc.pdf">
-                    </div>
-                    <div class="form-group">
-                        <label for="max-turns">Nombre de tours:</label>
-                        <input type="number" id="max-turns" value="10" min="1" max="50">
-                    </div>
-                    <!-- Les déclarations d'ouverture et de clôture sont toujours activées côté serveur -->
-                    <div class="form-group">
-                        <label for="response-length">Longueur des réponses:</label>
-                        <select id="response-length">
-                            <option value="concis">Réponses courtes</option>
-                            <option value="moyen" selected>Réponses moyennes</option>
-                            <option value="verbeux">Réponses longues</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="agent1-position">Position Agent 1:</label>
-                        <select id="agent1-position">
-                            <option value="pour">Pour</option>
-                            <option value="contre">Contre</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="agent2-position">Position Agent 2:</label>
-                        <select id="agent2-position">
-                            <option value="contre">Contre</option>
-                            <option value="pour">Pour</option>
-                        </select>
-                    </div>
+                <div class="feature">
+                    <span class="feature-icon">💬</span>
+                    <h3>10 Sujets d'Actualité</h3>
+                    <p>Télétravail, climat, IA, et bien plus</p>
                 </div>
-                <button id="start-debate-btn" class="btn btn-primary">Démarrer le débat</button>
-            </section>
-
-            <!-- Section du débat en cours -->
-            <section id="debate-arena" class="hidden">
-                <h2>Débat en cours </h2>
-                <div id="debate-info" class="debate-header"></div>
-                <div id="debate-messages" class="messages-container"></div>
-                <p class="help-text">Cliquez sur "Tour suivant" pour continuer.</p>
-                <div class="debate-controls">
-                    <button id="next-turn-btn" class="btn btn-primary">Tour suivant</button>
-                    <button id="stop-debate-btn" class="btn btn-danger">Arrêter le débat</button>
+                <div class="feature">
+                    <span class="feature-icon">⚡</span>
+                    <h3>Streaming en Direct</h3>
+                    <p>Réponses générées en temps réel</p>
                 </div>
-            </section>
-        </main>
-    </div>
-
-    <!-- Spinner overlay shown while backend prépare/scan la source -->
-    <div id="spinner-overlay" class="hidden">
-        <div class="spinner-box">
-            <div class="spinner"></div>
-            <p>Préparation du débat… Récupération du contenu de la source</p>
+            </div>
+            
+            <a href="debate.html" class="cta-button">
+                <span>Commencer un débat</span>
+            </a>
+            
+            <div class="info-footer">
+                <p>Propulsé par IMX Technologie inc. • Interface française</p>
+            </div>
+        </div>
+        
+        <div class="background-decoration">
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+            <div class="circle circle-3"></div>
         </div>
     </div>
-
-    <!-- Modal pour créer un agent -->
-    <div id="agent-modal" class="modal hidden">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Créer un Agent</h2>
-            <form id="agent-form">
-                <div class="form-group">
-                    <label for="agent-name">Nom:</label>
-                    <input type="text" id="agent-name" required>
-                </div>
-                <div class="form-group">
-                    <label for="agent-provider">Fournisseur IA:</label>
-                    <select id="agent-provider" required>
-                        <option value="openai">OpenAI (GPT)</option>
-                        <option value="google">Google (Gemini)</option>
-                        <option value="anthropic">Anthropic (Claude)</option>
-                        <option value="mistral">Mistral</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="agent-model">Modèle:</label>
-                    <input type="text" id="agent-model" placeholder="Ex: gpt-4, gemini-pro" required>
-                </div>
-                <div class="form-group">
-                    <label for="agent-description">Description:</label>
-                    <textarea id="agent-description" rows="3"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="agent-style">Style de débat:</label>
-                    <select id="agent-style" required>
-                        <option value="nuancé">Nuancé</option>
-                        <option value="populiste">Populiste</option>
-                        <option value="pragmatique">Pragmatique</option>
-                        <option value="idéaliste">Idéaliste</option>
-                        <option value="provocateur">Provocateur</option>
-                        <option value="conciliateur">Conciliateur</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="agent-tone">Tonalité:</label>
-                    <select id="agent-tone" required>
-                        <option value="formel">Formel</option>
-                        <option value="informel">Informel</option>
-                        <option value="académique">Académique</option>
-                        <option value="combatif">Combatif</option>
-                        <option value="empathique">Empathique</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="agent-strategy">Stratégie d'argumentation:</label>
-                    <select id="agent-strategy" required>
-                        <option value="logique">Logique</option>
-                        <option value="émotionnelle">Émotionnelle</option>
-                        <option value="éthique">Éthique</option>
-                        <option value="pragmatique">Pragmatique</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary">Créer l'agent</button>
-            </form>
-        </div>
-    </div>
-
-    <script src="app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

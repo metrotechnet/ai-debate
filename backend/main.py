@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from backend.models.agent import AgentConfig
-from backend.models.debate import Debate, DebateConfig, DebateMessage, MessageRole, DebateStatus
+from backend.models.debate import Debate, DebateConfig, DebateMessage, MessageRole, DebateStatus, DebateCreateRequest
 from typing import List
 import uvicorn
 import json
@@ -11,14 +11,28 @@ from datetime import datetime
 from backend.services.ai_service import AIService
 from backend.services.prompt_builder import PromptBuilder
 from backend.services.source_fetcher import fetch_source_text,topic_related_to_text
-import re
+from contextlib import asynccontextmanager
 
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Gestionnaire de cycle de vie de l'application"""
+    # Startup
+    print("🚀 Démarrage de l'application Agora IA...")
+    load_agents()
+    load_debates()
+    print(f"📊 Statut: {len(agents_db)} agents, {len(debates_db)} débats")
+    yield
+    # Shutdown (si nécessaire)
+    print("👋 Arrêt de l'application...")
 
 
 app = FastAPI(
     title="Agora IA API",
     description="API pour gérer des débats entre agents IA",
-    version="0.1.0"
+    version="0.1.0",
+    lifespan=lifespan
 )
 
 # Configuration CORS pour permettre les requêtes depuis le frontend
@@ -30,14 +44,22 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Middleware pour bypass l'authentification Cloud Run
+@app.middleware("http")
+async def bypass_auth(request, call_next):
+    response = await call_next(request)
+    return response
+
 # Stockage temporaire en mémoire (à remplacer par une base de données)
 agents_db = {}
 debates_db = {}
+debates_config_db = {}
 
 # Chemins des fichiers de données
 DATA_DIR = Path(__file__).parent / "data"
 AGENTS_FILE = DATA_DIR / "agents.json"
 DEBATES_FILE = DATA_DIR / "debates.json"
+ACTIVE_DEBATES_FILE = DATA_DIR / "active_debates.json"
 
 # Créer le dossier data s'il n'existe pas
 DATA_DIR.mkdir(exist_ok=True)
@@ -77,39 +99,38 @@ def save_agents():
 
 
 def load_debates():
-    """Charger les débats depuis le fichier JSON"""
+    """Charger les débats préconfigurés et actifs depuis les fichiers JSON"""
+    # Charger les débats préconfigurés (templates)
     if DEBATES_FILE.exists():
         try:
-            with open(DEBATES_FILE, 'r', encoding='utf-8') as f:
+            with open(DEBATES_FILE, 'r', encoding='utf-8-sig') as f:
                 data = json.load(f)
                 for debate_data in data.get('debates', []):
                     debate = Debate(**debate_data)
-                    debates_db[debate.id] = debate
-            print(f"✅ {len(debates_db)} débats chargés depuis {DEBATES_FILE}")
+                    debates_config_db[debate.id] = debate
+            print(f"✅ {len(debates_config_db)} débats préconfigurés chargés depuis {DEBATES_FILE}")
         except Exception as e:
-            print(f"⚠️ Erreur lors du chargement des débats: {e}")
+            print(f"⚠️ Erreur lors du chargement des débats préconfigurés: {e}")
+    
 
 
 def save_debates():
-    """Sauvegarder les débats dans le fichier JSON"""
+    """Sauvegarder uniquement les débats actifs/modifiés dans active_debates.json"""
     try:
+        # Ne sauvegarder que les débats qui ne sont plus "pending" (ont été démarrés/modifiés)
+        active_debates = [
+            debate for debate in debates_db.values() 
+            if debate.status != 'pending' or len(debate.messages) > 0 or debate.started_at is not None
+        ]
+        
         debates_data = {
-            "debates": [debate.model_dump(mode='json') for debate in debates_db.values()]
+            "debates": [debate.model_dump(mode='json') for debate in active_debates]
         }
-        with open(DEBATES_FILE, 'w', encoding='utf-8') as f:
+        with open(ACTIVE_DEBATES_FILE, 'w', encoding='utf-8') as f:
             json.dump(debates_data, f, indent=2, ensure_ascii=False)
-        print(f"💾 {len(debates_db)} débats sauvegardés dans {DEBATES_FILE}")
+        print(f"💾 {len(active_debates)} débats actifs sauvegardés dans {ACTIVE_DEBATES_FILE}")
     except Exception as e:
         print(f"⚠️ Erreur lors de la sauvegarde des débats: {e}")
-
-
-@app.on_event("startup")
-async def startup_event():
-    """Événement de démarrage - Charger les données"""
-    print("🚀 Démarrage de l'application Agora IA...")
-    load_agents()
-    load_debates()
-    print(f"📊 Statut: {len(agents_db)} agents, {len(debates_db)} débats")
 
 
 @app.get("/")
@@ -119,7 +140,7 @@ async def root():
         "version": "0.1.0",
         "stats": {
             "agents": len(agents_db),
-            "debates": len(debates_db)
+            "debates": len(debates_config_db)
         },
         "endpoints": {
             "agents": "/agents",
@@ -181,26 +202,50 @@ async def delete_agent(agent_id: str):
 # ===== ENDPOINTS DÉBATS =====
 
 @app.post("/debates", response_model=Debate)
-async def create_debate(debate: Debate):
+async def create_debate(request: DebateCreateRequest):
     """Créer un nouveau débat"""
     import uuid
-    debate.id = str(uuid.uuid4())
     
     # Vérifier que les agents existent
-    if debate.agent1_id not in agents_db:
-        raise HTTPException(status_code=404, detail=f"Agent 1 non trouvé: {debate.agent1_id}")
-    if debate.agent2_id not in agents_db:
-        raise HTTPException(status_code=404, detail=f"Agent 2 non trouvé: {debate.agent2_id}")
+    if request.agent1_id not in agents_db:
+        raise HTTPException(status_code=404, detail=f"Agent 1 non trouvé: {request.agent1_id}")
+    if request.agent2_id not in agents_db:
+        raise HTTPException(status_code=404, detail=f"Agent 2 non trouvé: {request.agent2_id}")
+    
+    # Créer la configuration avec les valeurs par défaut
+    config_data = request.config or {}
+    debate_config = DebateConfig(
+        topic=request.topic,
+        max_turns=config_data.get('max_turns', 10),
+        agent1_position=config_data.get('agent1_position', 'pour'),
+        agent2_position=config_data.get('agent2_position', 'contre'),
+        source_url=config_data.get('source_url'),
+        response_length=config_data.get('response_length', 'moyen')
+    )
+    
+    # Créer le débat
+    debate = Debate(
+        id=str(uuid.uuid4()),
+        topic=request.topic,
+        agent1_id=request.agent1_id,
+        agent2_id=request.agent2_id,
+        config=debate_config,
+        status=DebateStatus.PENDING,
+        messages=[],
+        current_turn=0,
+        created_at=datetime.now()
+    )
     
     debates_db[debate.id] = debate
     save_debates()
     return debate
 
 
-@app.get("/debates", response_model=List[Debate])
+@app.get("/debates")
 async def list_debates():
     """Lister tous les débats"""
-    return list(debates_db.values())
+    print(f"ℹ️ Récupération de la liste des débats ({len(debates_config_db)} au total)")
+    return {"debates": list(debates_config_db.values())}
 
 
 @app.get("/debates/{debate_id}", response_model=Debate)

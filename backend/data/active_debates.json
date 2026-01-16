@@ -1,0 +1,202 @@
+{
+  "debates": [
+    {
+      "id": "4cd0d8c7-618a-4ee4-8247-a09b69ecf73d",
+      "topic": "Le télétravail devrait-il devenir la norme pour tous les métiers où c'est possible",
+      "agent1_id": "agent-provocateur-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "Le télétravail devrait-il devenir la norme pour tous les métiers où c'est possible",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false,
+        "response_length": "concis",
+        "short_responses": null,
+        "agent1_position": "pour",
+        "agent2_position": "contre",
+        "source_url": null
+      },
+      "status": "in_progress",
+      "messages": [
+        {
+          "id": "e1c15aa4-e559-4df6-910d-150791c594ef",
+          "debate_id": "4cd0d8c7-618a-4ee4-8247-a09b69ecf73d",
+          "role": "agent1",
+          "agent_id": "agent-provocateur-001",
+          "content": "Bien sûr que le télétravail devrait être la norme, et ce, pour tous les métiers où c'est possible! C'est l'avenir, mes amis. Moins de temps dans les transports polluants, plus de productivité, et un meilleur équilibre travail-vie personnelle. Alors quoi ? Vous préférez vraiment rester coincés dans une bulle de climatisation toute la journée ?",
+          "timestamp": "2026-01-16T15:44:26.444220",
+          "turn_number": 0,
+          "tokens_used": 0
+        },
+        {
+          "id": "7e2b1e30-e469-44ce-9828-7fcf0cbc36c1",
+          "debate_id": "4cd0d8c7-618a-4ee4-8247-a09b69ecf73d",
+          "role": "agent2",
+          "agent_id": "agent-nuance-001",
+          "content": "Bien que le télétravail offre des avantages indéniables, il ne devrait pas devenir la norme pour tous les métiers où c'est possible. Il est crucial de considérer les conséquences potentielles sur la santé mentale, l'isolement social, et la difficulté à maintenir une séparation entre travail et vie personnelle.",
+          "timestamp": "2026-01-16T15:44:35.353873",
+          "turn_number": 0,
+          "tokens_used": 0
+        },
+        {
+          "id": "ee7f40e2-8203-4ed6-9ec0-c3c3999a36e2",
+          "debate_id": "4cd0d8c7-618a-4ee4-8247-a09b69ecf73d",
+          "role": "agent1",
+          "agent_id": "agent-provocateur-001",
+          "content": "Eh bien, n'est-ce pas intéressant? Nous voilà soudainement préoccupés par l'isolement social et la santé mentale... alors que les open spaces sont tout sauf des havres de sérénité. Quant à la séparation entre le travail et la vie personnelle, c'est une question de discipline et d'organisation, pas de lieu.",
+          "timestamp": "2026-01-16T15:44:42.693068",
+          "turn_number": 1,
+          "tokens_used": 0
+        },
+        {
+          "id": "baa6b77d-2c5a-4157-8b06-781b6fa341c6",
+          "debate_id": "4cd0d8c7-618a-4ee4-8247-a09b69ecf73d",
+          "role": "agent2",
+          "agent_id": "agent-nuance-001",
+          "content": "Les open spaces ne sont certes pas parfaits, mais ils offrent une interaction sociale que le télétravail ne peut pas toujours reproduire. En ce qui concerne la séparation travail-vie personnelle, même avec une grande discipline, travailler et vivre dans le même espace peut rendre cette distinction floue pour certains individus.",
+          "timestamp": "2026-01-16T15:44:54.028416",
+          "turn_number": 1,
+          "tokens_used": 0
+        },
+        {
+          "id": "b2358cf2-f607-456f-8da1-3d5050d27474",
+          "debate_id": "4cd0d8c7-618a-4ee4-8247-a09b69ecf73d",
+          "role": "agent1",
+          "agent_id": "agent-provocateur-001",
+          "content": "Ah, le vieil argument de l'interaction sociale... Comme si nous ne pouvions pas socialiser en dehors du bureau. C'est le 21ème siècle, non ? Quant à la séparation travail-vie personnelle, c'est plus une question de respect des limites que de géographie. Allez, avouez-le, vous voulez juste retourner à votre bocal à poissons !",
+          "timestamp": "2026-01-16T15:45:08.566310",
+          "turn_number": 2,
+          "tokens_used": 0
+        },
+        {
+          "id": "b3e8e94a-3213-4860-8e93-819ba97eeaaa",
+          "debate_id": "4cd0d8c7-618a-4ee4-8247-a09b69ecf73d",
+          "role": "agent2",
+          "agent_id": "agent-nuance-001",
+          "content": "Il est vrai que nous pouvons socialiser en dehors du bureau, mais le travail offre un cadre social unique qui peut être bénéfique. En ce qui concerne le respect des limites, oui, c'est crucial, mais il est également vrai que la géographie peut aider à renforcer ces limites. Il ne s'agit pas de retourner à un \"bocal à poissons\", mais de trouver un équilibre sain entre télétravail et présence au bureau.",
+          "timestamp": "2026-01-16T15:45:19.772575",
+          "turn_number": 2,
+          "tokens_used": 0
+        },
+        {
+          "id": "a7bb7b7c-4472-49f2-8a2f-aff87efe243b",
+          "debate_id": "4cd0d8c7-618a-4ee4-8247-a09b69ecf73d",
+          "role": "agent1",
+          "agent_id": "agent-provocateur-001",
+          "content": "Ah, l'équilibre... Toujours cet équilibre. Mais qui a dit que le bureau était le seul endroit pour trouver cet équilibre ? Vous semblez coincé dans une mentalité du 20ème siècle. Le télétravail, c'est la liberté de travailler où vous voulez, quand vous voulez. C'est ça, le véritable équilibre.",
+          "timestamp": "2026-01-16T15:45:28.863692",
+          "turn_number": 3,
+          "tokens_used": 0
+        },
+        {
+          "id": "b5e5a5f4-2cdc-426c-87c7-3097b234d61a",
+          "debate_id": "4cd0d8c7-618a-4ee4-8247-a09b69ecf73d",
+          "role": "agent2",
+          "agent_id": "agent-nuance-001",
+          "content": "Le télétravail offre certainement une flexibilité, mais cette liberté peut aussi conduire à des journées de travail prolongées et à un épuisement professionnel. L'équilibre ne se résume pas à la flexibilité, il s'agit aussi de garantir une structure et un soutien appropriés pour les travailleurs.",
+          "timestamp": "2026-01-16T15:45:36.037763",
+          "turn_number": 3,
+          "tokens_used": 0
+        },
+        {
+          "id": "0af13d2b-87a1-408d-b621-c5765459a0e9",
+          "debate_id": "4cd0d8c7-618a-4ee4-8247-a09b69ecf73d",
+          "role": "agent1",
+          "agent_id": "agent-provocateur-001",
+          "content": "Oh, donc maintenant vous êtes inquiet pour les journées de travail prolongées ? Comme si elles n'existaient pas dans le bureau traditionnel... Les épuisements professionnels ne sont pas exclusifs au télétravail. Avec le bon soutien et une bonne organisation, le télétravail est l'avenir. N'ayez pas peur de sortir de votre zone de confort.",
+          "timestamp": "2026-01-16T15:45:44.626379",
+          "turn_number": 4,
+          "tokens_used": 0
+        },
+        {
+          "id": "4445f5b6-4cb9-44a3-8fc5-ee789597db50",
+          "debate_id": "4cd0d8c7-618a-4ee4-8247-a09b69ecf73d",
+          "role": "agent2",
+          "agent_id": "agent-nuance-001",
+          "content": "Il est vrai que les journées de travail prolongées et l'épuisement professionnel peuvent survenir dans n'importe quel environnement de travail. Cependant, le risque peut être amplifié avec le télétravail en raison de la difficulté à déconnecter. Il ne s'agit pas de peur, mais d'une analyse nuancée des avantages et des inconvénients du télétravail.",
+          "timestamp": "2026-01-16T15:45:52.683462",
+          "turn_number": 4,
+          "tokens_used": 0
+        },
+        {
+          "id": "320924c9-98ec-43f3-bde2-986d7ddc0828",
+          "debate_id": "4cd0d8c7-618a-4ee4-8247-a09b69ecf73d",
+          "role": "agent1",
+          "agent_id": "agent-provocateur-001",
+          "content": "Ah, l'analyse nuancée... Comme si le bureau était un sanctuaire d'équilibre parfait. Nous savons tous que ce n'est pas le cas. Le télétravail offre plus de possibilités pour une vie meilleure, il suffit de s'adapter à cette nouvelle réalité. Alors, arrêtez de vous accrocher au passé, il est temps d'embrasser l'avenir !",
+          "timestamp": "2026-01-16T15:46:00.208465",
+          "turn_number": 5,
+          "tokens_used": 0
+        },
+        {
+          "id": "247093e3-ff5a-49c2-9356-661a328aa793",
+          "debate_id": "4cd0d8c7-618a-4ee4-8247-a09b69ecf73d",
+          "role": "agent2",
+          "agent_id": "agent-nuance-001",
+          "content": "L'adaptation à de nouvelles réalités est essentielle, mais il est également important d'évaluer attentivement les implications de ces changements. Le télétravail a ses avantages, mais il comporte également des défis qui nécessitent des solutions réfléchies. L'avenir du travail pourrait bien être un mélange de présence au bureau et de télétravail.",
+          "timestamp": "2026-01-16T15:46:23.828680",
+          "turn_number": 5,
+          "tokens_used": 0
+        }
+      ],
+      "current_turn": 6,
+      "winner_id": null,
+      "created_at": "2026-01-16T15:44:18.083574",
+      "started_at": "2026-01-16T15:44:18.094194",
+      "completed_at": null,
+      "source_text": null
+    },
+    {
+      "id": "99e71ceb-3575-4eb4-ae64-33b42cf33ef1",
+      "topic": "Le télétravail devrait-il devenir la norme pour tous les métiers où c'est possible",
+      "agent1_id": "agent-provocateur-001",
+      "agent2_id": "agent-nuance-001",
+      "config": {
+        "topic": "Le télétravail devrait-il devenir la norme pour tous les métiers où c'est possible",
+        "max_turns": 10,
+        "turn_time_limit": null,
+        "opening_statement_required": true,
+        "closing_statement_required": true,
+        "allow_questions": true,
+        "moderated": false,
+        "response_length": "concis",
+        "short_responses": null,
+        "agent1_position": "pour",
+        "agent2_position": "contre",
+        "source_url": null
+      },
+      "status": "in_progress",
+      "messages": [
+        {
+          "id": "bc261f1f-5cd2-4c2d-bb67-9cb2d1a8f809",
+          "debate_id": "99e71ceb-3575-4eb4-ae64-33b42cf33ef1",
+          "role": "agent1",
+          "agent_id": "agent-provocateur-001",
+          "content": "Oh, je suis impatient d'entendre les plaintes sur ce sujet ! Oui, le télétravail devrait être la norme. Il améliore la productivité, élimine le temps de déplacement inutile et réduit notre impact environnemental. Alors, arrêtons de tourner autour du pot et sautons dans le 21ème siècle !",
+          "timestamp": "2026-01-16T15:46:37.041497",
+          "turn_number": 0,
+          "tokens_used": 0
+        },
+        {
+          "id": "3da16b31-e92f-4091-af91-3b049c227ad0",
+          "debate_id": "99e71ceb-3575-4eb4-ae64-33b42cf33ef1",
+          "role": "agent2",
+          "agent_id": "agent-nuance-001",
+          "content": "Bien que le télétravail offre certains avantages, il ne devrait pas devenir la norme pour tous les métiers où c'est possible. Les raisons principales sont le risque d'isolement social, la difficulté à maintenir une séparation entre vie professionnelle et vie privée, et le manque de supervision directe qui peut affecter la qualité du travail.",
+          "timestamp": "2026-01-16T15:46:45.040478",
+          "turn_number": 0,
+          "tokens_used": 0
+        }
+      ],
+      "current_turn": 1,
+      "winner_id": null,
+      "created_at": "2026-01-16T15:46:29.319940",
+      "started_at": "2026-01-16T15:46:29.342799",
+      "completed_at": null,
+      "source_text": null
+    }
+  ]
+}

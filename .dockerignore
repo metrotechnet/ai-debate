@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+
+# Frontend (non nécessaire pour le backend)
+frontend/
+
+# IDE
+.vscode/
+.idea/
+
+# Git
+.git/
+.gitignore
+
+# Environnement
+.env
+.env.local
+
+# Données locales (optionnel - garder si vous voulez les inclure)
+# backend/data/*.json
+
+# Documentation
+README.md
+*.md
+
+# Scripts
+start_server.ps1

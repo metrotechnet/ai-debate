@@ -53,6 +53,17 @@ class DebateConfig(BaseModel):
     source_url: Optional[str] = Field(default=None, description="URL d'une page HTML ou d'un PDF à inclure dans le contexte du débat")
 
 
+class DebateCreateRequest(BaseModel):
+    """Requête pour créer un débat"""
+    topic: str
+    agent1_id: str
+    agent2_id: str
+    config: Optional[Dict] = None
+    
+    class Config:
+        use_enum_values = True
+
+
 class Debate(BaseModel):
     """Débat entre deux agents"""
     id: Optional[str] = None
